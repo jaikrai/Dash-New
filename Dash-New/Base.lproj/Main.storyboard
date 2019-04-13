@@ -110,7 +110,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="0TX-cf-v0s" kind="push" identifier="ViewBoard" id="tY9-Aj-Abm"/>
+                                            <segue destination="0TX-cf-v0s" kind="show" identifier="ViewBoard" id="tY9-Aj-Abm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -124,7 +124,7 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="u9y-5j-3iA"/>
-                        <barButtonItem title="Create Board" id="0Ni-eR-Iui">
+                        <barButtonItem systemItem="add" id="0Ni-eR-Iui">
                             <connections>
                                 <action selector="onPlushTapped:" destination="BYZ-38-t0r" id="1Y4-hL-hce"/>
                             </connections>

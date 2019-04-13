@@ -17,11 +17,11 @@ extension Quote {
         return NSFetchRequest<Quote>(entityName: "Quote")
     }
 
-    @NSManaged public var text: String?
-    @NSManaged public var xpos: Float
-    @NSManaged public var ypos: Float
-    @NSManaged public var scale: Float
     @NSManaged public var layer: Int16
+    @NSManaged public var scale: Float
+    @NSManaged public var text: String?
+    @NSManaged public var xpos: Int16
+    @NSManaged public var ypos: Int16
     @NSManaged public var board: Board?
 
 }

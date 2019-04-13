@@ -17,11 +17,11 @@ extension Image {
         return NSFetchRequest<Image>(entityName: "Image")
     }
 
-    @NSManaged public var picture: NSData?
-    @NSManaged public var xpos: Float
-    @NSManaged public var ypos: Float
     @NSManaged public var layer: Int16
+    @NSManaged public var picture: NSData?
     @NSManaged public var scale: Float
+    @NSManaged public var xpos: Int16
+    @NSManaged public var ypos: Int16
     @NSManaged public var board: Board?
 
 }

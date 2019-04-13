@@ -107,12 +107,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
 //        // get a reference to the second view controller
         if let VC = segue.destination as? DetailViewController {
-            if VC == nil {
-                VC.board1 = boardName[(tableView.indexPathForSelectedRow?.row)!]
-                tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
-            }
-            
-            
+        VC.board = boardName[(tableView.indexPathForSelectedRow?.row)!]
+        tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
         }
         
     }
