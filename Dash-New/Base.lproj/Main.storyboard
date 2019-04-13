@@ -148,11 +148,19 @@
                         <viewLayoutGuide key="safeArea" id="fX9-oT-phk"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem systemItem="camera" id="FRL-5l-v7k" userLabel="pickImage"/>
+                        <barButtonItem systemItem="camera" id="FRL-5l-v7k" userLabel="pickImage">
+                            <connections>
+                                <action selector="pickImagePressed:" destination="0TX-cf-v0s" id="7tT-xV-Vsg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem width="144" style="plain" systemItem="fixedSpace" id="V0c-4W-L6B"/>
                         <barButtonItem systemItem="search" id="VGA-c4-R7s" userLabel="searchImage"/>
                         <barButtonItem width="136" style="plain" systemItem="fixedSpace" id="7JI-0u-iTf"/>
-                        <barButtonItem systemItem="compose" id="Qfi-ez-ZT6" userLabel="addText"/>
+                        <barButtonItem systemItem="compose" id="Qfi-ez-ZT6" userLabel="addText">
+                            <connections>
+                                <action selector="addText:" destination="0TX-cf-v0s" id="nnf-ei-FBC"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="EWa-Ug-T3K"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
