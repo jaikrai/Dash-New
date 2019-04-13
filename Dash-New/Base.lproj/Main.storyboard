@@ -132,6 +132,9 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="QVd-6K-rkv"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Sg3-Xw-Sji" id="uzV-Xq-N5i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
