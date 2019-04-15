@@ -84,9 +84,9 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         }
     }
     @IBAction func addText(_ sender: Any) {
-        let alert = UIAlertController(title: "Create Board", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add A Quote", message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
-            textField.placeholder = "Text"
+            textField.placeholder = "Quote"
         }
         
         
@@ -129,6 +129,9 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         let translation = sender.translation(in: self.view)
         viewDrag.center = CGPoint(x: viewDrag.center.x + translation.x, y: viewDrag.center.y + translation.y)
         sender.setTranslation(CGPoint.zero, in: self.view)
+        if sender.state == .ended{
+            saveData()
+        }
     }
     
     @objc func draggedText(_ sender:UIPanGestureRecognizer){
@@ -137,22 +140,28 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         let translation = sender.translation(in: self.view)
         viewDrag.center = CGPoint(x: viewDrag.center.x + translation.x, y: viewDrag.center.y + translation.y)
         sender.setTranslation(CGPoint.zero, in: self.view)
+        if sender.state == .ended{
+            saveData()
+        }
     }
     
     @objc func scaleImage(_ sender: UIPinchGestureRecognizer) {
         print("Scale Function")
         sender.view!.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
+        if sender.state == .ended{
+            saveData()
+        }
     }
     
     @objc func scaleText(_ sender: UIPinchGestureRecognizer) {
         print("Scale Function")
         sender.view!.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
-
+        if sender.state == .ended{
+            saveData()
+        }
     }
     
-    override func willMove(toParent parent: UIViewController?) {
-        super.willMove(toParent:parent)
-        if parent == nil {
+    func saveData(){
             // The back button was pressed or interactive gesture used
             print("Closing Board: "  + self.board.id!)
             for image in self.board.images!{
@@ -190,6 +199,13 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
             }
             print("Added All Quotes")
             PersistenceService.saveContext()
+        }
+
+    
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent:parent)
+        if parent == nil {
+          saveData()
         }
     }
 }

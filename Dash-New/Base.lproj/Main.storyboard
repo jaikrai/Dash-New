@@ -13,7 +13,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ea2-zF-dKY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Zl-C4-ggt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="n6a-Ct-Vlx" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ShU-A0-wOq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -25,6 +24,7 @@
                         <segue destination="kAP-QK-FNg" kind="relationship" relationship="viewControllers" id="7Za-dj-vIh"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Zl-C4-ggt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2780" y="276"/>
         </scene>
