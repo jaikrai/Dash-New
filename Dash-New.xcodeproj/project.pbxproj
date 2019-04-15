@@ -23,6 +23,7 @@
 		7F37812F2262550D00908DA5 /* Quote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37812B2262550D00908DA5 /* Quote+CoreDataClass.swift */; };
 		7F3781302262550D00908DA5 /* Quote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37812C2262550D00908DA5 /* Quote+CoreDataProperties.swift */; };
 		7F834032226275C500F5C2FC /* Dash_New.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */; };
+		7F8340352264C3BF00F5C2FC /* Launch Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8340342264C3BF00F5C2FC /* Launch Screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		7F37812A2262550D00908DA5 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7F37812B2262550D00908DA5 /* Quote+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7F37812C2262550D00908DA5 /* Quote+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F8340342264C3BF00F5C2FC /* Launch Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch Screen.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		25C1D130225B16FE008FAEF2 /* Dash-New */ = {
 			isa = PBXGroup;
 			children = (
+				7F8340342264C3BF00F5C2FC /* Launch Screen.png */,
 				25C1D131225B16FE008FAEF2 /* AppDelegate.swift */,
 				25C1D133225B16FE008FAEF2 /* ViewController.swift */,
 				25C1D17A225E7026008FAEF2 /* DetailViewController.swift */,
@@ -259,6 +262,7 @@
 				7F834032226275C500F5C2FC /* Dash_New.xcdatamodeld in Resources */,
 				25C1D13F225B16FF008FAEF2 /* LaunchScreen.storyboard in Resources */,
 				25C1D13C225B16FF008FAEF2 /* Assets.xcassets in Resources */,
+				7F8340352264C3BF00F5C2FC /* Launch Screen.png in Resources */,
 				25C1D137225B16FE008FAEF2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
