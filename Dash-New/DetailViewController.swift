@@ -35,6 +35,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     func loadQuotes(){
+        labelViews.removeAll()
         for quote in (board.quotes!){
             let curQuote = quote as! Quote
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
@@ -50,6 +51,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     func loadImages(){
+        imageViews.removeAll()
         for image in (board.images!){
             let curImage = image as! Image
             let imageview = UIImageView (image: UIImage.init(data: curImage.picture as! Data))
@@ -118,9 +120,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     @objc func draggedImage(_ sender:UIPanGestureRecognizer){
-        print("Drag Function")
         let viewDrag = sender.view! as! UIImageView
-        
         self.view.bringSubviewToFront(viewDrag)
         let translation = sender.translation(in: self.view)
         viewDrag.center = CGPoint(x: viewDrag.center.x + translation.x, y: viewDrag.center.y + translation.y)
@@ -128,9 +128,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     @objc func draggedText(_ sender:UIPanGestureRecognizer){
-        print("Drag Function")
         let viewDrag = sender.view! as! UILabel
-        
         self.view.bringSubviewToFront(viewDrag)
         let translation = sender.translation(in: self.view)
         viewDrag.center = CGPoint(x: viewDrag.center.x + translation.x, y: viewDrag.center.y + translation.y)
@@ -141,43 +139,51 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         print("Scale Function")
         sender.view!.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("Closing Board: "  + self.board.id!)
-        for image in self.board.images!{
-            let curImage = image as! Image
-            self.board.removeFromImages(curImage)
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        if (self.isBeingDismissed) {
+//      }
+//    }
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent:parent)
+        if parent == nil {
+            // The back button was pressed or interactive gesture used
+            print("Closing Board: "  + self.board.id!)
+            for image in self.board.images!{
+                let curImage = image as! Image
+                self.board.removeFromImages(curImage)
+                PersistenceService.context.delete(curImage)
+            }
+            print("Removed All images")
+            for quote in self.board.quotes!{
+                let curQuote = quote as! Quote
+                self.board.removeFromQuotes(curQuote)
+                PersistenceService.context.delete(curQuote)
+            }
+            print("Removed All Quotes")
+            for imageView in self.imageViews {
+                print("Creating Image")
+                let boardImage = Image(context: PersistenceService.context)
+                boardImage.picture = NSData(data: imageView.image!.pngData()!)
+                boardImage.xpos = Float(imageView.frame.origin.x)
+                boardImage.ypos = Float(imageView.frame.origin.y)
+                boardImage.scale = 1
+                boardImage.layer = 1
+                self.board.addToImages(boardImage)
+            }
+            print("Added All Images")
+            for labelView in self.labelViews {
+                print("Saving: " + labelView.text!)
+                let quote = Quote(context: PersistenceService.context)
+                quote.text = labelView.text!
+                quote.xpos = Float(labelView.center.x)
+                quote.ypos = Float(labelView.center.y)
+                quote.scale = 1
+                quote.layer = 1
+                self.board.addToQuotes(quote)
+            }
+            print("Added All Quotes")
+            PersistenceService.saveContext()
         }
-        PersistenceService.saveContext()
-        print("Removed All images")
-        for quote in self.board.quotes!{
-            let curQuote = quote as! Quote
-            self.board.removeFromQuotes(curQuote)
-        }
-        PersistenceService.saveContext()
-        print("Removed All Quotes")
-        for imageView in self.imageViews {
-            print("Creating Image")
-            let boardImage = Image(context: PersistenceService.context)
-            boardImage.picture = NSData(data: imageView.image!.pngData()!)
-            boardImage.xpos = Float(imageView.frame.origin.x)
-            boardImage.ypos = Float(imageView.frame.origin.y)
-            boardImage.scale = 1
-            boardImage.layer = 1
-            self.board.addToImages(boardImage)
-        }
-        PersistenceService.saveContext()
-        print("Added All Images")
-        for labelView in self.labelViews {
-            let quote = Quote(context: PersistenceService.context)
-            quote.text = labelView.text!
-            quote.xpos = Float(labelView.center.x)
-            quote.ypos = Float(labelView.center.y)
-            quote.scale = 1
-            quote.layer = 1
-            self.board.addToQuotes(quote)
-        }
-        PersistenceService.saveContext()
-        print("Added All Quotes")
     }
 }
