@@ -2,7 +2,7 @@
 //  Board+CoreDataProperties.swift
 //  Dash-New
 //
-//  Created by Jared Breedlove on 4/13/19.
+//  Created by Jared Breedlove on 4/14/19.
 //  Copyright © 2019 iMac. All rights reserved.
 //
 //
@@ -17,8 +17,8 @@ extension Board {
         return NSFetchRequest<Board>(entityName: "Board")
     }
 
-    @NSManaged public var desctiption: String?
     @NSManaged public var title: String?
+    @NSManaged public var id: String?
     @NSManaged public var images: NSOrderedSet?
     @NSManaged public var quotes: NSOrderedSet?
 
