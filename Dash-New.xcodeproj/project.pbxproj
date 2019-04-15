@@ -67,6 +67,7 @@
 		7F37812B2262550D00908DA5 /* Quote+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7F37812C2262550D00908DA5 /* Quote+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7F8340342264C3BF00F5C2FC /* Launch Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch Screen.png"; sourceTree = "<group>"; };
+		7F8340362264CBC000F5C2FC /* Dash-New.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dash-New.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +124,7 @@
 		25C1D130225B16FE008FAEF2 /* Dash-New */ = {
 			isa = PBXGroup;
 			children = (
+				7F8340362264CBC000F5C2FC /* Dash-New.entitlements */,
 				7F8340342264C3BF00F5C2FC /* Launch Screen.png */,
 				25C1D131225B16FE008FAEF2 /* AppDelegate.swift */,
 				25C1D133225B16FE008FAEF2 /* ViewController.swift */,
@@ -223,6 +225,14 @@
 				TargetAttributes = {
 					25C1D12D225B16FE008FAEF2 = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
 					};
 					25C1D144225B1700008FAEF2 = {
 						CreatedOnToolsVersion = 10.2;
@@ -472,14 +482,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Dash-New/Dash-New.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2AYJF6WYU8;
+				DEVELOPMENT_TEAM = WS247Y395L;
 				INFOPLIST_FILE = "Dash-New/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developers.Dash-New";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrometheusConsulting.dash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -490,14 +501,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Dash-New/Dash-New.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2AYJF6WYU8;
+				DEVELOPMENT_TEAM = WS247Y395L;
 				INFOPLIST_FILE = "Dash-New/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developers.Dash-New";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrometheusConsulting.dash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
