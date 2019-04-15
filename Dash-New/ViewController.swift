@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         self.navigationItem.title = "Boards"
+        self.navigationItem.leftBarButtonItem = editButtonItem
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(onPlushTapped(_:)))
         
         let fetchRequest: NSFetchRequest<Board> = Board.fetchRequest()
