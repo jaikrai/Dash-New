@@ -26,6 +26,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         do{
           let boardName = try PersistenceService.context.fetch(fetchRequest)
             self.boardName = boardName
+            for board in self.boardName{
+                if board.id == nil{
+                    PersistenceService.context.delete(board)
+                }
+            }
+            self.boardName.removeAll(where: {$0.id == nil})
             self.tableView?.reloadData()
             
         }catch{
