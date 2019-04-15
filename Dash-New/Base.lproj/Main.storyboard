@@ -110,7 +110,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="0TX-cf-v0s" kind="push" identifier="ViewBoard" id="tY9-Aj-Abm"/>
+                                            <segue destination="0TX-cf-v0s" kind="show" identifier="ViewBoard" id="tY9-Aj-Abm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -124,7 +124,7 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="u9y-5j-3iA"/>
-                        <barButtonItem title="Create Board" id="0Ni-eR-Iui">
+                        <barButtonItem systemItem="add" id="0Ni-eR-Iui">
                             <connections>
                                 <action selector="onPlushTapped:" destination="BYZ-38-t0r" id="1Y4-hL-hce"/>
                             </connections>
@@ -132,6 +132,9 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="QVd-6K-rkv"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Sg3-Xw-Sji" id="uzV-Xq-N5i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,11 +151,19 @@
                         <viewLayoutGuide key="safeArea" id="fX9-oT-phk"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem systemItem="camera" id="FRL-5l-v7k" userLabel="pickImage"/>
+                        <barButtonItem systemItem="camera" id="FRL-5l-v7k" userLabel="pickImage">
+                            <connections>
+                                <action selector="pickImagePressed:" destination="0TX-cf-v0s" id="7tT-xV-Vsg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem width="144" style="plain" systemItem="fixedSpace" id="V0c-4W-L6B"/>
                         <barButtonItem systemItem="search" id="VGA-c4-R7s" userLabel="searchImage"/>
                         <barButtonItem width="136" style="plain" systemItem="fixedSpace" id="7JI-0u-iTf"/>
-                        <barButtonItem systemItem="compose" id="Qfi-ez-ZT6" userLabel="addText"/>
+                        <barButtonItem systemItem="compose" id="Qfi-ez-ZT6" userLabel="addText">
+                            <connections>
+                                <action selector="addText:" destination="0TX-cf-v0s" id="nnf-ei-FBC"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="EWa-Ug-T3K"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>

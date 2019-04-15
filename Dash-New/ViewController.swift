@@ -47,6 +47,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
             let board = Board(context: PersistenceService.context)
             board.title = title
+            board.id = UUID().uuidString
+            print(board.id)
             PersistenceService.saveContext()
             self?.boardName.append(board)
             self?.tableView.reloadData()
@@ -88,12 +90,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return boardName.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "boardCell", for: indexPath)
-        if cell == nil {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "boardCell")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "boardCell", for: indexPath)
+       // if cell == nil {
+        //cell = UITableViewCell(style: .subtitle, reuseIdentifier: "boardCell")
+        
         cell.textLabel?.text = boardName[indexPath.row].title
-        cell.detailTextLabel?.text = boardName[indexPath.row].desctiption
+        
         return cell
     }
 //    // method to run when table view cell is tapped
@@ -107,12 +109,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
 //        // get a reference to the second view controller
         if let VC = segue.destination as? DetailViewController {
-            if VC == nil {
-                VC.board1 = boardName[(tableView.indexPathForSelectedRow?.row)!]
-                tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
-            }
-            
-            
+            VC.boardId = boardName[(tableView.indexPathForSelectedRow?.row)!].id!
+            tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
         }
         
     }

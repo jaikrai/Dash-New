@@ -10,7 +10,6 @@
 		25C1D132225B16FE008FAEF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D131225B16FE008FAEF2 /* AppDelegate.swift */; };
 		25C1D134225B16FE008FAEF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D133225B16FE008FAEF2 /* ViewController.swift */; };
 		25C1D137225B16FE008FAEF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25C1D135225B16FE008FAEF2 /* Main.storyboard */; };
-		25C1D13A225B16FE008FAEF2 /* Dash_New.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */; };
 		25C1D13C225B16FF008FAEF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25C1D13B225B16FF008FAEF2 /* Assets.xcassets */; };
 		25C1D13F225B16FF008FAEF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25C1D13D225B16FF008FAEF2 /* LaunchScreen.storyboard */; };
 		25C1D14A225B1700008FAEF2 /* Dash_NewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D149225B1700008FAEF2 /* Dash_NewTests.swift */; };
@@ -19,6 +18,11 @@
 		25C1D176225BDB94008FAEF2 /* Board+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D174225BDB94008FAEF2 /* Board+CoreDataClass.swift */; };
 		25C1D177225BDB94008FAEF2 /* Board+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D175225BDB94008FAEF2 /* Board+CoreDataProperties.swift */; };
 		25C1D17B225E7026008FAEF2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D17A225E7026008FAEF2 /* DetailViewController.swift */; };
+		7F37812D2262550D00908DA5 /* Image+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3781292262550D00908DA5 /* Image+CoreDataClass.swift */; };
+		7F37812E2262550D00908DA5 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37812A2262550D00908DA5 /* Image+CoreDataProperties.swift */; };
+		7F37812F2262550D00908DA5 /* Quote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37812B2262550D00908DA5 /* Quote+CoreDataClass.swift */; };
+		7F3781302262550D00908DA5 /* Quote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37812C2262550D00908DA5 /* Quote+CoreDataProperties.swift */; };
+		7F834032226275C500F5C2FC /* Dash_New.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		25C1D174225BDB94008FAEF2 /* Board+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board+CoreDataClass.swift"; sourceTree = "<group>"; };
 		25C1D175225BDB94008FAEF2 /* Board+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		25C1D17A225E7026008FAEF2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7F3781292262550D00908DA5 /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F37812A2262550D00908DA5 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F37812B2262550D00908DA5 /* Quote+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F37812C2262550D00908DA5 /* Quote+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,10 @@
 		25C1D125225B16FE008FAEF2 = {
 			isa = PBXGroup;
 			children = (
+				7F3781292262550D00908DA5 /* Image+CoreDataClass.swift */,
+				7F37812A2262550D00908DA5 /* Image+CoreDataProperties.swift */,
+				7F37812B2262550D00908DA5 /* Quote+CoreDataClass.swift */,
+				7F37812C2262550D00908DA5 /* Quote+CoreDataProperties.swift */,
 				25C1D174225BDB94008FAEF2 /* Board+CoreDataClass.swift */,
 				25C1D175225BDB94008FAEF2 /* Board+CoreDataProperties.swift */,
 				25C1D130225B16FE008FAEF2 /* Dash-New */,
@@ -244,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F834032226275C500F5C2FC /* Dash_New.xcdatamodeld in Resources */,
 				25C1D13F225B16FF008FAEF2 /* LaunchScreen.storyboard in Resources */,
 				25C1D13C225B16FF008FAEF2 /* Assets.xcassets in Resources */,
 				25C1D137225B16FE008FAEF2 /* Main.storyboard in Resources */,
@@ -271,11 +284,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F37812E2262550D00908DA5 /* Image+CoreDataProperties.swift in Sources */,
 				25C1D176225BDB94008FAEF2 /* Board+CoreDataClass.swift in Sources */,
-				25C1D13A225B16FE008FAEF2 /* Dash_New.xcdatamodeld in Sources */,
 				25C1D17B225E7026008FAEF2 /* DetailViewController.swift in Sources */,
+				7F37812D2262550D00908DA5 /* Image+CoreDataClass.swift in Sources */,
 				25C1D177225BDB94008FAEF2 /* Board+CoreDataProperties.swift in Sources */,
+				7F37812F2262550D00908DA5 /* Quote+CoreDataClass.swift in Sources */,
 				25C1D163225B1AAF008FAEF2 /* PersistenceService.swift in Sources */,
+				7F3781302262550D00908DA5 /* Quote+CoreDataProperties.swift in Sources */,
 				25C1D134225B16FE008FAEF2 /* ViewController.swift in Sources */,
 				25C1D132225B16FE008FAEF2 /* AppDelegate.swift in Sources */,
 			);
