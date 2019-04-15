@@ -17,10 +17,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let image = UIImage(named: "1184-dash-toolbar")
         
-        self.navigationItem.titleView = UIImageView(image: image)
-        self.navigationItem.rightBarButtonItem = editButtonItem
+        self.navigationItem.title = "Boards"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(onPlushTapped(_:)))
         
         let fetchRequest: NSFetchRequest<Board> = Board.fetchRequest()
         do{
@@ -110,6 +109,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         performSegue(withIdentifier: "ViewBoard", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
+        
+        if editingStyle == .delete {
+            PersistenceService.context.delete(self.boardName[indexPath.row])
+            PersistenceService.saveContext()
+        }
+        
+        let fetchRequest: NSFetchRequest<Board> = Board.fetchRequest()
+        do{
+            let temp = try PersistenceService.context.fetch(fetchRequest)
+            self.boardName = temp
+            self.tableView?.reloadData()
+            
+        }catch{
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
+        
+        
+    }
+    
     // This function is called before the segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -117,6 +136,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let VC = segue.destination as? DetailViewController {
             VC.boardId = boardName[(tableView.indexPathForSelectedRow?.row)!].id!
             tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
+            VC.hidesBottomBarWhenPushed = true
         }
         
     }

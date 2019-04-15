@@ -24,6 +24,9 @@
 		7F3781302262550D00908DA5 /* Quote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F37812C2262550D00908DA5 /* Quote+CoreDataProperties.swift */; };
 		7F834032226275C500F5C2FC /* Dash_New.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */; };
 		7F8340352264C3BF00F5C2FC /* Launch Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8340342264C3BF00F5C2FC /* Launch Screen.png */; };
+		7F834039226506B400F5C2FC /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F834037226506B400F5C2FC /* Person+CoreDataClass.swift */; };
+		7F83403A226506B400F5C2FC /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F834038226506B400F5C2FC /* Person+CoreDataProperties.swift */; };
+		7F83403C2265075A00F5C2FC /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83403B2265075A00F5C2FC /* RemindersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		7F37812C2262550D00908DA5 /* Quote+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7F8340342264C3BF00F5C2FC /* Launch Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch Screen.png"; sourceTree = "<group>"; };
 		7F8340362264CBC000F5C2FC /* Dash-New.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dash-New.entitlements"; sourceTree = "<group>"; };
+		7F834037226506B400F5C2FC /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F834038226506B400F5C2FC /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F83403B2265075A00F5C2FC /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,8 @@
 		25C1D125225B16FE008FAEF2 = {
 			isa = PBXGroup;
 			children = (
+				7F834037226506B400F5C2FC /* Person+CoreDataClass.swift */,
+				7F834038226506B400F5C2FC /* Person+CoreDataProperties.swift */,
 				7F3781292262550D00908DA5 /* Image+CoreDataClass.swift */,
 				7F37812A2262550D00908DA5 /* Image+CoreDataProperties.swift */,
 				7F37812B2262550D00908DA5 /* Quote+CoreDataClass.swift */,
@@ -131,6 +139,7 @@
 				25C1D17A225E7026008FAEF2 /* DetailViewController.swift */,
 				25C1D162225B1AAF008FAEF2 /* PersistenceService.swift */,
 				25C1D135225B16FE008FAEF2 /* Main.storyboard */,
+				7F83403B2265075A00F5C2FC /* RemindersViewController.swift */,
 				25C1D13B225B16FF008FAEF2 /* Assets.xcassets */,
 				25C1D13D225B16FF008FAEF2 /* LaunchScreen.storyboard */,
 				25C1D140225B16FF008FAEF2 /* Info.plist */,
@@ -299,12 +308,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F37812E2262550D00908DA5 /* Image+CoreDataProperties.swift in Sources */,
+				7F83403C2265075A00F5C2FC /* RemindersViewController.swift in Sources */,
+				7F834039226506B400F5C2FC /* Person+CoreDataClass.swift in Sources */,
 				25C1D176225BDB94008FAEF2 /* Board+CoreDataClass.swift in Sources */,
 				25C1D17B225E7026008FAEF2 /* DetailViewController.swift in Sources */,
 				7F37812D2262550D00908DA5 /* Image+CoreDataClass.swift in Sources */,
 				25C1D177225BDB94008FAEF2 /* Board+CoreDataProperties.swift in Sources */,
 				7F37812F2262550D00908DA5 /* Quote+CoreDataClass.swift in Sources */,
 				25C1D163225B1AAF008FAEF2 /* PersistenceService.swift in Sources */,
+				7F83403A226506B400F5C2FC /* Person+CoreDataProperties.swift in Sources */,
 				7F3781302262550D00908DA5 /* Quote+CoreDataProperties.swift in Sources */,
 				25C1D134225B16FE008FAEF2 /* ViewController.swift in Sources */,
 				25C1D132225B16FE008FAEF2 /* AppDelegate.swift in Sources */,

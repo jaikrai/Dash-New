@@ -41,10 +41,11 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
             label.isUserInteractionEnabled = true
             label.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedText(_:))))
-            label.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
-            label.center = CGPoint(x: Int(curQuote.xpos), y: Int(curQuote.ypos))
+            label.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleText(_:))))
+            label.center = CGPoint(x: CGFloat(curQuote.xpos), y: CGFloat(curQuote.ypos))
             label.textAlignment = .center
             label.text = curQuote.text
+            label.font = label.font.withSize(CGFloat(curQuote.fontSize))
             self.view.addSubview(label)
             labelViews.append(label)
             }
@@ -54,11 +55,11 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         imageViews.removeAll()
         for image in (board.images!){
             let curImage = image as! Image
-            let imageview = UIImageView (image: UIImage.init(data: curImage.picture as! Data))
+            let imageview = UIImageView (image: UIImage.init(data: curImage.picture! as Data))
         imageview.isUserInteractionEnabled = true
         imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
         imageview.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
-            imageview.frame = CGRect (x: Int(curImage.xpos), y: Int(curImage.ypos), width: 100 , height: 100)
+            imageview.frame = CGRect (x: CGFloat(curImage.xpos), y: CGFloat(curImage.ypos), width: CGFloat(curImage.width) , height: CGFloat(curImage.height))
 
         self.view.addSubview(imageview)
         imageViews.append(imageview)
@@ -88,13 +89,15 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
             textField.placeholder = "Text"
         }
         
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let action = UIAlertAction(title: "Save", style: .default) { action in
             let title = alert.textFields!.first!.text!;
             print(title)
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
             label.isUserInteractionEnabled = true
             label.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedText(_:))))
-            label.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
+            label.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleText(_:))))
             label.center = CGPoint(x: 160, y: 285)
             label.textAlignment = .center
             label.text = title
@@ -102,6 +105,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
             self.labelViews.append(label)
         }
         alert.addAction(action)
+        alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
     
@@ -113,7 +117,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
         imageview.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
         self.view.addSubview(imageview)
-        imageview.frame = CGRect (x: 20, y: 20, width: 100 , height: 100)
+        imageview.frame = CGRect (x: 100, y: 100, width: 100 , height: 100)
         self.imageViews.append(imageview)
         self.dismiss(animated: true, completion: nil)
         
@@ -139,11 +143,13 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         print("Scale Function")
         sender.view!.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
     }
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        if (self.isBeingDismissed) {
-//      }
-//    }
+    
+    @objc func scaleText(_ sender: UIPinchGestureRecognizer) {
+        print("Scale Function")
+        sender.view!.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
+
+    }
+    
     override func willMove(toParent parent: UIViewController?) {
         super.willMove(toParent:parent)
         if parent == nil {
@@ -164,10 +170,11 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
             for imageView in self.imageViews {
                 print("Creating Image")
                 let boardImage = Image(context: PersistenceService.context)
-                boardImage.picture = NSData(data: imageView.image!.pngData()!)
+                boardImage.picture = NSData(data: imageView.image!.jpegData(compressionQuality: 0.75)!)
                 boardImage.xpos = Float(imageView.frame.origin.x)
                 boardImage.ypos = Float(imageView.frame.origin.y)
-                boardImage.scale = 1
+                boardImage.width = Float(imageView.frame.width)
+                boardImage.height = Float(imageView.frame.height)
                 boardImage.layer = 1
                 self.board.addToImages(boardImage)
             }
@@ -178,7 +185,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
                 quote.text = labelView.text!
                 quote.xpos = Float(labelView.center.x)
                 quote.ypos = Float(labelView.center.y)
-                quote.scale = 1
                 quote.layer = 1
                 self.board.addToQuotes(quote)
             }
