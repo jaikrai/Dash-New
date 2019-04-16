@@ -19,6 +19,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         let fetchRequest: NSFetchRequest<Board> = Board.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", boardId)
         do{
@@ -31,6 +32,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
 
         loadQuotes()
         loadImages()
+        title = board.title
         //print(board1)
     }
     
