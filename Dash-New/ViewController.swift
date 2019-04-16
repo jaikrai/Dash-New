@@ -17,9 +17,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.navigationItem.title = "Boards"
-        self.navigationItem.leftBarButtonItem = editButtonItem
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(onPlushTapped(_:)))
         
         let fetchRequest: NSFetchRequest<Board> = Board.fetchRequest()
@@ -140,6 +139,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             VC.hidesBottomBarWhenPushed = true
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setToolbarHidden(true, animated: true)
+
     }
     
 }

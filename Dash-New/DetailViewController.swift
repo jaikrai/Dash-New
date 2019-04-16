@@ -18,8 +18,8 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        self.navigationController?.setToolbarHidden(false, animated: true)
+
         let fetchRequest: NSFetchRequest<Board> = Board.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", boardId)
         do{
