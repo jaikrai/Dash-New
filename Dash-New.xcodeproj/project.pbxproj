@@ -27,6 +27,12 @@
 		7F83403C2265075A00F5C2FC /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83403B2265075A00F5C2FC /* RemindersViewController.swift */; };
 		7FAA1B092266650800D640FB /* Affirmation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA1B072266650800D640FB /* Affirmation+CoreDataClass.swift */; };
 		7FAA1B0A2266650800D640FB /* Affirmation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA1B082266650800D640FB /* Affirmation+CoreDataProperties.swift */; };
+		7FAA1B1222666D5600D640FB /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA1B1122666D5600D640FB /* IntentHandler.swift */; };
+		7FAA1B1B22666D5600D640FB /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAA1B1A22666D5600D640FB /* IntentsUI.framework */; };
+		7FAA1B1E22666D5600D640FB /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA1B1D22666D5600D640FB /* IntentViewController.swift */; };
+		7FAA1B2122666D5600D640FB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAA1B1F22666D5600D640FB /* MainInterface.storyboard */; };
+		7FAA1B2522666D5600D640FB /* DashBoardIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7FAA1B1822666D5600D640FB /* DashBoardIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7FAA1B2822666D5600D640FB /* DashBoardIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7FAA1B0F22666D5600D640FB /* DashBoardIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +50,36 @@
 			remoteGlobalIDString = 25C1D12D225B16FE008FAEF2;
 			remoteInfo = "Dash-New";
 		};
+		7FAA1B2322666D5600D640FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25C1D126225B16FE008FAEF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FAA1B1722666D5600D640FB;
+			remoteInfo = DashBoardIntentUI;
+		};
+		7FAA1B2622666D5600D640FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25C1D126225B16FE008FAEF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FAA1B0E22666D5600D640FB;
+			remoteInfo = DashBoardIntent;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7FAA1B2F22666D5600D640FB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7FAA1B2522666D5600D640FB /* DashBoardIntentUI.appex in Embed App Extensions */,
+				7FAA1B2822666D5600D640FB /* DashBoardIntent.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		25C1D12E225B16FE008FAEF2 /* Dash-New.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dash-New.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +109,14 @@
 		7F83403B2265075A00F5C2FC /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		7FAA1B072266650800D640FB /* Affirmation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Affirmation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7FAA1B082266650800D640FB /* Affirmation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Affirmation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7FAA1B0F22666D5600D640FB /* DashBoardIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DashBoardIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FAA1B1122666D5600D640FB /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		7FAA1B1322666D5600D640FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FAA1B1822666D5600D640FB /* DashBoardIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DashBoardIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FAA1B1A22666D5600D640FB /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		7FAA1B1D22666D5600D640FB /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		7FAA1B2022666D5600D640FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7FAA1B2222666D5600D640FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +141,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FAA1B0C22666D5600D640FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FAA1B1522666D5600D640FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAA1B1B22666D5600D640FB /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -115,6 +173,9 @@
 				25C1D130225B16FE008FAEF2 /* Dash-New */,
 				25C1D148225B1700008FAEF2 /* Dash-NewTests */,
 				25C1D153225B1700008FAEF2 /* Dash-NewUITests */,
+				7FAA1B1022666D5600D640FB /* DashBoardIntent */,
+				7FAA1B1C22666D5600D640FB /* DashBoardIntentUI */,
+				7FAA1B1922666D5600D640FB /* Frameworks */,
 				25C1D12F225B16FE008FAEF2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -125,6 +186,8 @@
 				25C1D12E225B16FE008FAEF2 /* Dash-New.app */,
 				25C1D145225B1700008FAEF2 /* Dash-NewTests.xctest */,
 				25C1D150225B1700008FAEF2 /* Dash-NewUITests.xctest */,
+				7FAA1B0F22666D5600D640FB /* DashBoardIntent.appex */,
+				7FAA1B1822666D5600D640FB /* DashBoardIntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +229,33 @@
 			path = "Dash-NewUITests";
 			sourceTree = "<group>";
 		};
+		7FAA1B1022666D5600D640FB /* DashBoardIntent */ = {
+			isa = PBXGroup;
+			children = (
+				7FAA1B1122666D5600D640FB /* IntentHandler.swift */,
+				7FAA1B1322666D5600D640FB /* Info.plist */,
+			);
+			path = DashBoardIntent;
+			sourceTree = "<group>";
+		};
+		7FAA1B1922666D5600D640FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FAA1B1A22666D5600D640FB /* IntentsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FAA1B1C22666D5600D640FB /* DashBoardIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				7FAA1B1D22666D5600D640FB /* IntentViewController.swift */,
+				7FAA1B1F22666D5600D640FB /* MainInterface.storyboard */,
+				7FAA1B2222666D5600D640FB /* Info.plist */,
+			);
+			path = DashBoardIntentUI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,10 +266,13 @@
 				25C1D12A225B16FE008FAEF2 /* Sources */,
 				25C1D12B225B16FE008FAEF2 /* Frameworks */,
 				25C1D12C225B16FE008FAEF2 /* Resources */,
+				7FAA1B2F22666D5600D640FB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7FAA1B2422666D5600D640FB /* PBXTargetDependency */,
+				7FAA1B2722666D5600D640FB /* PBXTargetDependency */,
 			);
 			name = "Dash-New";
 			productName = "Dash-New";
@@ -222,6 +315,40 @@
 			productReference = 25C1D150225B1700008FAEF2 /* Dash-NewUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		7FAA1B0E22666D5600D640FB /* DashBoardIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FAA1B2E22666D5600D640FB /* Build configuration list for PBXNativeTarget "DashBoardIntent" */;
+			buildPhases = (
+				7FAA1B0B22666D5600D640FB /* Sources */,
+				7FAA1B0C22666D5600D640FB /* Frameworks */,
+				7FAA1B0D22666D5600D640FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DashBoardIntent;
+			productName = DashBoardIntent;
+			productReference = 7FAA1B0F22666D5600D640FB /* DashBoardIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		7FAA1B1722666D5600D640FB /* DashBoardIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FAA1B2D22666D5600D640FB /* Build configuration list for PBXNativeTarget "DashBoardIntentUI" */;
+			buildPhases = (
+				7FAA1B1422666D5600D640FB /* Sources */,
+				7FAA1B1522666D5600D640FB /* Frameworks */,
+				7FAA1B1622666D5600D640FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DashBoardIntentUI;
+			productName = DashBoardIntentUI;
+			productReference = 7FAA1B1822666D5600D640FB /* DashBoardIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -251,6 +378,12 @@
 						CreatedOnToolsVersion = 10.2;
 						TestTargetID = 25C1D12D225B16FE008FAEF2;
 					};
+					7FAA1B0E22666D5600D640FB = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					7FAA1B1722666D5600D640FB = {
+						CreatedOnToolsVersion = 10.2;
+					};
 				};
 			};
 			buildConfigurationList = 25C1D129225B16FE008FAEF2 /* Build configuration list for PBXProject "Dash-New" */;
@@ -269,6 +402,8 @@
 				25C1D12D225B16FE008FAEF2 /* Dash-New */,
 				25C1D144225B1700008FAEF2 /* Dash-NewTests */,
 				25C1D14F225B1700008FAEF2 /* Dash-NewUITests */,
+				7FAA1B0E22666D5600D640FB /* DashBoardIntent */,
+				7FAA1B1722666D5600D640FB /* DashBoardIntentUI */,
 			);
 		};
 /* End PBXProject section */
@@ -297,6 +432,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FAA1B0D22666D5600D640FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FAA1B1622666D5600D640FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAA1B2122666D5600D640FB /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +489,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FAA1B0B22666D5600D640FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAA1B1222666D5600D640FB /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FAA1B1422666D5600D640FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FAA1B1E22666D5600D640FB /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -351,6 +517,16 @@
 			isa = PBXTargetDependency;
 			target = 25C1D12D225B16FE008FAEF2 /* Dash-New */;
 			targetProxy = 25C1D151225B1700008FAEF2 /* PBXContainerItemProxy */;
+		};
+		7FAA1B2422666D5600D640FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FAA1B1722666D5600D640FB /* DashBoardIntentUI */;
+			targetProxy = 7FAA1B2322666D5600D640FB /* PBXContainerItemProxy */;
+		};
+		7FAA1B2722666D5600D640FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FAA1B0E22666D5600D640FB /* DashBoardIntent */;
+			targetProxy = 7FAA1B2622666D5600D640FB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -369,6 +545,14 @@
 				25C1D13E225B16FF008FAEF2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7FAA1B1F22666D5600D640FB /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FAA1B2022666D5600D640FB /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -493,6 +677,7 @@
 		25C1D15A225B1700008FAEF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Dash-New/Dash-New.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -512,6 +697,7 @@
 		25C1D15B225B1700008FAEF2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Dash-New/Dash-New.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -610,6 +796,82 @@
 			};
 			name = Release;
 		};
+		7FAA1B2922666D5600D640FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS247Y395L;
+				INFOPLIST_FILE = DashBoardIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrometheusConsulting.dash.DashBoardIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7FAA1B2A22666D5600D640FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS247Y395L;
+				INFOPLIST_FILE = DashBoardIntent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrometheusConsulting.dash.DashBoardIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7FAA1B2B22666D5600D640FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS247Y395L;
+				INFOPLIST_FILE = DashBoardIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrometheusConsulting.dash.DashBoardIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7FAA1B2C22666D5600D640FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS247Y395L;
+				INFOPLIST_FILE = DashBoardIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrometheusConsulting.dash.DashBoardIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -645,6 +907,24 @@
 			buildConfigurations = (
 				25C1D160225B1700008FAEF2 /* Debug */,
 				25C1D161225B1700008FAEF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FAA1B2D22666D5600D640FB /* Build configuration list for PBXNativeTarget "DashBoardIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FAA1B2B22666D5600D640FB /* Debug */,
+				7FAA1B2C22666D5600D640FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FAA1B2E22666D5600D640FB /* Build configuration list for PBXNativeTarget "DashBoardIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FAA1B2922666D5600D640FB /* Debug */,
+				7FAA1B2A22666D5600D640FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
