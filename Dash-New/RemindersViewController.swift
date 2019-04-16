@@ -12,7 +12,7 @@ import CoreData
 class RemindersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var people = [Person]()
+    var affirmations = [Affirmation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +25,10 @@ class RemindersViewController: UIViewController {
         
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "Cell")
-        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+        let fetchRequest: NSFetchRequest<Affirmation> = Affirmation.fetchRequest()
         do{
             let temp = try PersistenceService.context.fetch(fetchRequest)
-            self.people = temp
+            self.affirmations = temp
             self.tableView?.reloadData()
             
         }catch{
@@ -52,11 +52,10 @@ class RemindersViewController: UIViewController {
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] action in
             
-            let nameTextField = alert.textFields?.first
-            let nameToSave = nameTextField!.text!
-            let person = Person(context: PersistenceService.context)
-            person.name = nameToSave
-            self.people.append(person)
+            let title = alert.textFields?.first?.text
+            let affirmation = Affirmation(context: PersistenceService.context)
+            affirmation.title = title
+            self.affirmations.append(affirmation)
             self.tableView.reloadData()
             PersistenceService.saveContext()
         }
@@ -79,7 +78,7 @@ class RemindersViewController: UIViewController {
 extension RemindersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return people.count
+        return affirmations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,9 +86,9 @@ extension RemindersViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell",
                                                  for: indexPath)
         
-        let person = people[indexPath.row]
+        let affirmation = affirmations[indexPath.row]
         
-        cell.textLabel?.text = person.value(forKey: "name") as! String?
+        cell.textLabel?.text = affirmation.title
         return cell
     }
     
@@ -100,14 +99,14 @@ extension RemindersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         
         if editingStyle == .delete {
-            PersistenceService.context.delete(self.people[indexPath.row])
+            PersistenceService.context.delete(self.affirmations[indexPath.row])
             PersistenceService.saveContext()
         }
         
-        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+        let fetchRequest: NSFetchRequest<Affirmation> = Affirmation.fetchRequest()
         do{
             let temp = try PersistenceService.context.fetch(fetchRequest)
-            self.people = temp
+            self.affirmations = temp
             self.tableView?.reloadData()
             
         }catch{

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Affirmation" representedClassName="Affirmation" syncable="YES" codeGenerationType="class">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Board" representedClassName="Board" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,9 +17,6 @@
         <attribute name="xpos" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ypos" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="Quote" representedClassName="Quote" syncable="YES" codeGenerationType="class">
         <attribute name="fontSize" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="layer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -27,7 +27,7 @@
     <elements>
         <element name="Board" positionX="-233.6484375" positionY="77.12109375" width="128" height="105"/>
         <element name="Image" positionX="-63" positionY="36" width="128" height="135"/>
+        <element name="Affirmation" positionX="-144" positionY="144" width="128" height="60"/>
         <element name="Quote" positionX="-64.65234375" positionY="174.37109375" width="128" height="120"/>
-        <element name="Person" positionX="-144" positionY="144" width="128" height="60"/>
     </elements>
 </model>
