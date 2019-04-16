@@ -2,7 +2,7 @@
 //  Board+CoreDataClass.swift
 //  Dash-New
 //
-//  Created by iMac on 4/8/19.
+//  Created by Jared Breedlove on 4/16/19.
 //  Copyright © 2019 iMac. All rights reserved.
 //
 //

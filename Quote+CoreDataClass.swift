@@ -2,7 +2,7 @@
 //  Quote+CoreDataClass.swift
 //  Dash-New
 //
-//  Created by Jared Breedlove on 4/13/19.
+//  Created by Jared Breedlove on 4/16/19.
 //  Copyright © 2019 iMac. All rights reserved.
 //
 //

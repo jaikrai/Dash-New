@@ -2,7 +2,7 @@
 //  Image+CoreDataProperties.swift
 //  Dash-New
 //
-//  Created by Jared Breedlove on 4/15/19.
+//  Created by Jared Breedlove on 4/16/19.
 //  Copyright © 2019 iMac. All rights reserved.
 //
 //
@@ -17,11 +17,11 @@ extension Image {
         return NSFetchRequest<Image>(entityName: "Image")
     }
 
+    @NSManaged public var height: Float
     @NSManaged public var layer: Int16
     @NSManaged public var picture: NSData?
+    @NSManaged public var width: Float
     @NSManaged public var xpos: Float
     @NSManaged public var ypos: Float
-    @NSManaged public var width: Float
-    @NSManaged public var height: Float
 
 }

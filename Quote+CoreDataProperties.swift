@@ -2,7 +2,7 @@
 //  Quote+CoreDataProperties.swift
 //  Dash-New
 //
-//  Created by Jared Breedlove on 4/15/19.
+//  Created by Jared Breedlove on 4/16/19.
 //  Copyright © 2019 iMac. All rights reserved.
 //
 //
@@ -17,10 +17,10 @@ extension Quote {
         return NSFetchRequest<Quote>(entityName: "Quote")
     }
 
+    @NSManaged public var fontSize: Float
     @NSManaged public var layer: Int16
     @NSManaged public var text: String?
     @NSManaged public var xpos: Float
     @NSManaged public var ypos: Float
-    @NSManaged public var fontSize: Float
 
 }
