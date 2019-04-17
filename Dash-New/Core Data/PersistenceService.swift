@@ -28,7 +28,8 @@ class PersistenceService {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "Dash_New")
+    
+        let container = NSCustomPersistentContainer(name: "Dash_New")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -48,6 +49,7 @@ class PersistenceService {
         return container
     }()
     
+
     // MARK: - Core Data Saving support
     
    static func saveContext () {

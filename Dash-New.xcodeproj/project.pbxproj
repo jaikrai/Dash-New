@@ -27,6 +27,22 @@
 		7F9A26AA22667672001E5F13 /* Quote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A26A222667672001E5F13 /* Quote+CoreDataProperties.swift */; };
 		7F9A26AB22667672001E5F13 /* Board+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A26A322667672001E5F13 /* Board+CoreDataClass.swift */; };
 		7F9A26AC22667672001E5F13 /* Board+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A26A422667672001E5F13 /* Board+CoreDataProperties.swift */; };
+		7FE0849A2267013900B8505D /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084992267013900B8505D /* IntentHandler.swift */; };
+		7FE084A32267013900B8505D /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE084A22267013900B8505D /* IntentsUI.framework */; };
+		7FE084A62267013900B8505D /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084A52267013900B8505D /* IntentViewController.swift */; };
+		7FE084A92267013900B8505D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE084A72267013900B8505D /* MainInterface.storyboard */; };
+		7FE084AD2267013900B8505D /* MotivationIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7FE084A02267013900B8505D /* MotivationIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7FE084B02267013900B8505D /* MotivationIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7FE084972267013900B8505D /* MotivationIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7FE084B92267015E00B8505D /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084B82267015E00B8505D /* Intents.intentdefinition */; };
+		7FE084CC226701EB00B8505D /* Dash_New.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */; };
+		7FE084CD226701EB00B8505D /* Dash_New.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */; };
+		7FE084D42267047700B8505D /* NSCustomPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084D32267047700B8505D /* NSCustomPersistentContainer.swift */; };
+		7FE084D52267057200B8505D /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D162225B1AAF008FAEF2 /* PersistenceService.swift */; };
+		7FE084D62267057300B8505D /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D162225B1AAF008FAEF2 /* PersistenceService.swift */; };
+		7FE084D82267065E00B8505D /* MotivateIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084D72267065E00B8505D /* MotivateIntentHandler.swift */; };
+		7FE084D9226708C700B8505D /* NSCustomPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084D32267047700B8505D /* NSCustomPersistentContainer.swift */; };
+		7FE084DA226708C800B8505D /* NSCustomPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084D32267047700B8505D /* NSCustomPersistentContainer.swift */; };
+		7FE084DC22670C6100B8505D /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084B82267015E00B8505D /* Intents.intentdefinition */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +60,36 @@
 			remoteGlobalIDString = 25C1D12D225B16FE008FAEF2;
 			remoteInfo = "Dash-New";
 		};
+		7FE084AB2267013900B8505D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25C1D126225B16FE008FAEF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FE0849F2267013900B8505D;
+			remoteInfo = MotivationIntentUI;
+		};
+		7FE084AE2267013900B8505D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25C1D126225B16FE008FAEF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FE084962267013900B8505D;
+			remoteInfo = MotivationIntent;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7FE084B72267013900B8505D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7FE084B02267013900B8505D /* MotivationIntent.appex in Embed App Extensions */,
+				7FE084AD2267013900B8505D /* MotivationIntentUI.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		25C1D12E225B16FE008FAEF2 /* Dash-New.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dash-New.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +119,19 @@
 		7F9A26A222667672001E5F13 /* Quote+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7F9A26A322667672001E5F13 /* Board+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7F9A26A422667672001E5F13 /* Board+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7FE084972267013900B8505D /* MotivationIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MotivationIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FE084992267013900B8505D /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		7FE0849B2267013900B8505D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FE084A02267013900B8505D /* MotivationIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MotivationIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FE084A22267013900B8505D /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		7FE084A52267013900B8505D /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		7FE084A82267013900B8505D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7FE084AA2267013900B8505D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FE084B82267015E00B8505D /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		7FE084BA226701D000B8505D /* MotivationIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MotivationIntent.entitlements; sourceTree = "<group>"; };
+		7FE084BB226701D600B8505D /* MotivationIntentUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MotivationIntentUI.entitlements; sourceTree = "<group>"; };
+		7FE084D32267047700B8505D /* NSCustomPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCustomPersistentContainer.swift; sourceTree = "<group>"; };
+		7FE084D72267065E00B8505D /* MotivateIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivateIntentHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,23 +156,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FE084942267013900B8505D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FE0849D2267013900B8505D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FE084A32267013900B8505D /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		25C1D125225B16FE008FAEF2 = {
 			isa = PBXGroup;
 			children = (
-				7F9A269D22667672001E5F13 /* Image+CoreDataClass.swift */,
-				7F9A269E22667672001E5F13 /* Image+CoreDataProperties.swift */,
-				7F9A269F22667672001E5F13 /* Affirmation+CoreDataClass.swift */,
-				7F9A26A022667672001E5F13 /* Affirmation+CoreDataProperties.swift */,
-				7F9A26A122667672001E5F13 /* Quote+CoreDataClass.swift */,
-				7F9A26A222667672001E5F13 /* Quote+CoreDataProperties.swift */,
-				7F9A26A322667672001E5F13 /* Board+CoreDataClass.swift */,
-				7F9A26A422667672001E5F13 /* Board+CoreDataProperties.swift */,
 				25C1D130225B16FE008FAEF2 /* Dash-New */,
 				25C1D148225B1700008FAEF2 /* Dash-NewTests */,
 				25C1D153225B1700008FAEF2 /* Dash-NewUITests */,
+				7FE084982267013900B8505D /* MotivationIntent */,
+				7FE084A42267013900B8505D /* MotivationIntentUI */,
+				7FE084A12267013900B8505D /* Frameworks */,
 				25C1D12F225B16FE008FAEF2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -125,6 +193,8 @@
 				25C1D12E225B16FE008FAEF2 /* Dash-New.app */,
 				25C1D145225B1700008FAEF2 /* Dash-NewTests.xctest */,
 				25C1D150225B1700008FAEF2 /* Dash-NewUITests.xctest */,
+				7FE084972267013900B8505D /* MotivationIntent.appex */,
+				7FE084A02267013900B8505D /* MotivationIntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,18 +202,17 @@
 		25C1D130225B16FE008FAEF2 /* Dash-New */ = {
 			isa = PBXGroup;
 			children = (
+				7FE084D02267029300B8505D /* Core Data */,
 				7F8340362264CBC000F5C2FC /* Dash-New.entitlements */,
 				7F8340342264C3BF00F5C2FC /* Launch Screen.png */,
 				25C1D131225B16FE008FAEF2 /* AppDelegate.swift */,
 				25C1D133225B16FE008FAEF2 /* ViewController.swift */,
 				25C1D17A225E7026008FAEF2 /* DetailViewController.swift */,
-				25C1D162225B1AAF008FAEF2 /* PersistenceService.swift */,
 				25C1D135225B16FE008FAEF2 /* Main.storyboard */,
 				7F83403B2265075A00F5C2FC /* RemindersViewController.swift */,
 				25C1D13B225B16FF008FAEF2 /* Assets.xcassets */,
 				25C1D13D225B16FF008FAEF2 /* LaunchScreen.storyboard */,
 				25C1D140225B16FF008FAEF2 /* Info.plist */,
-				25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */,
 			);
 			path = "Dash-New";
 			sourceTree = "<group>";
@@ -166,6 +235,55 @@
 			path = "Dash-NewUITests";
 			sourceTree = "<group>";
 		};
+		7FE084982267013900B8505D /* MotivationIntent */ = {
+			isa = PBXGroup;
+			children = (
+				7FE084BA226701D000B8505D /* MotivationIntent.entitlements */,
+				7FE084992267013900B8505D /* IntentHandler.swift */,
+				7FE0849B2267013900B8505D /* Info.plist */,
+				7FE084B82267015E00B8505D /* Intents.intentdefinition */,
+				7FE084D72267065E00B8505D /* MotivateIntentHandler.swift */,
+			);
+			path = MotivationIntent;
+			sourceTree = "<group>";
+		};
+		7FE084A12267013900B8505D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FE084A22267013900B8505D /* IntentsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FE084A42267013900B8505D /* MotivationIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				7FE084BB226701D600B8505D /* MotivationIntentUI.entitlements */,
+				7FE084A52267013900B8505D /* IntentViewController.swift */,
+				7FE084A72267013900B8505D /* MainInterface.storyboard */,
+				7FE084AA2267013900B8505D /* Info.plist */,
+			);
+			path = MotivationIntentUI;
+			sourceTree = "<group>";
+		};
+		7FE084D02267029300B8505D /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				7F9A269D22667672001E5F13 /* Image+CoreDataClass.swift */,
+				7F9A269E22667672001E5F13 /* Image+CoreDataProperties.swift */,
+				7F9A269F22667672001E5F13 /* Affirmation+CoreDataClass.swift */,
+				7F9A26A022667672001E5F13 /* Affirmation+CoreDataProperties.swift */,
+				7F9A26A122667672001E5F13 /* Quote+CoreDataClass.swift */,
+				7F9A26A222667672001E5F13 /* Quote+CoreDataProperties.swift */,
+				7F9A26A322667672001E5F13 /* Board+CoreDataClass.swift */,
+				7F9A26A422667672001E5F13 /* Board+CoreDataProperties.swift */,
+				25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */,
+				25C1D162225B1AAF008FAEF2 /* PersistenceService.swift */,
+				7FE084D32267047700B8505D /* NSCustomPersistentContainer.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,10 +294,13 @@
 				25C1D12A225B16FE008FAEF2 /* Sources */,
 				25C1D12B225B16FE008FAEF2 /* Frameworks */,
 				25C1D12C225B16FE008FAEF2 /* Resources */,
+				7FE084B72267013900B8505D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7FE084AC2267013900B8505D /* PBXTargetDependency */,
+				7FE084AF2267013900B8505D /* PBXTargetDependency */,
 			);
 			name = "Dash-New";
 			productName = "Dash-New";
@@ -222,6 +343,40 @@
 			productReference = 25C1D150225B1700008FAEF2 /* Dash-NewUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		7FE084962267013900B8505D /* MotivationIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FE084B62267013900B8505D /* Build configuration list for PBXNativeTarget "MotivationIntent" */;
+			buildPhases = (
+				7FE084932267013900B8505D /* Sources */,
+				7FE084942267013900B8505D /* Frameworks */,
+				7FE084952267013900B8505D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MotivationIntent;
+			productName = MotivationIntent;
+			productReference = 7FE084972267013900B8505D /* MotivationIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		7FE0849F2267013900B8505D /* MotivationIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FE084B52267013900B8505D /* Build configuration list for PBXNativeTarget "MotivationIntentUI" */;
+			buildPhases = (
+				7FE0849C2267013900B8505D /* Sources */,
+				7FE0849D2267013900B8505D /* Frameworks */,
+				7FE0849E2267013900B8505D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MotivationIntentUI;
+			productName = MotivationIntentUI;
+			productReference = 7FE084A02267013900B8505D /* MotivationIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -235,6 +390,9 @@
 					25C1D12D225B16FE008FAEF2 = {
 						CreatedOnToolsVersion = 10.2;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -250,6 +408,22 @@
 					25C1D14F225B1700008FAEF2 = {
 						CreatedOnToolsVersion = 10.2;
 						TestTargetID = 25C1D12D225B16FE008FAEF2;
+					};
+					7FE084962267013900B8505D = {
+						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					7FE0849F2267013900B8505D = {
+						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -269,6 +443,8 @@
 				25C1D12D225B16FE008FAEF2 /* Dash-New */,
 				25C1D144225B1700008FAEF2 /* Dash-NewTests */,
 				25C1D14F225B1700008FAEF2 /* Dash-NewUITests */,
+				7FE084962267013900B8505D /* MotivationIntent */,
+				7FE0849F2267013900B8505D /* MotivationIntentUI */,
 			);
 		};
 /* End PBXProject section */
@@ -300,6 +476,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FE084952267013900B8505D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FE0849E2267013900B8505D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FE084A92267013900B8505D /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -307,8 +498,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FE084D42267047700B8505D /* NSCustomPersistentContainer.swift in Sources */,
 				7F9A26AC22667672001E5F13 /* Board+CoreDataProperties.swift in Sources */,
 				7F9A26AB22667672001E5F13 /* Board+CoreDataClass.swift in Sources */,
+				7FE084DC22670C6100B8505D /* Intents.intentdefinition in Sources */,
 				7F83403C2265075A00F5C2FC /* RemindersViewController.swift in Sources */,
 				25C1D17B225E7026008FAEF2 /* DetailViewController.swift in Sources */,
 				7F9A26A822667672001E5F13 /* Affirmation+CoreDataProperties.swift in Sources */,
@@ -339,6 +532,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FE084932267013900B8505D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FE084D9226708C700B8505D /* NSCustomPersistentContainer.swift in Sources */,
+				7FE084D82267065E00B8505D /* MotivateIntentHandler.swift in Sources */,
+				7FE084B92267015E00B8505D /* Intents.intentdefinition in Sources */,
+				7FE084D52267057200B8505D /* PersistenceService.swift in Sources */,
+				7FE0849A2267013900B8505D /* IntentHandler.swift in Sources */,
+				7FE084CC226701EB00B8505D /* Dash_New.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FE0849C2267013900B8505D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FE084DA226708C800B8505D /* NSCustomPersistentContainer.swift in Sources */,
+				7FE084CD226701EB00B8505D /* Dash_New.xcdatamodeld in Sources */,
+				7FE084D62267057300B8505D /* PersistenceService.swift in Sources */,
+				7FE084A62267013900B8505D /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -351,6 +568,16 @@
 			isa = PBXTargetDependency;
 			target = 25C1D12D225B16FE008FAEF2 /* Dash-New */;
 			targetProxy = 25C1D151225B1700008FAEF2 /* PBXContainerItemProxy */;
+		};
+		7FE084AC2267013900B8505D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FE0849F2267013900B8505D /* MotivationIntentUI */;
+			targetProxy = 7FE084AB2267013900B8505D /* PBXContainerItemProxy */;
+		};
+		7FE084AF2267013900B8505D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FE084962267013900B8505D /* MotivationIntent */;
+			targetProxy = 7FE084AE2267013900B8505D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -369,6 +596,14 @@
 				25C1D13E225B16FF008FAEF2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7FE084A72267013900B8505D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FE084A82267013900B8505D /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -493,6 +728,7 @@
 		25C1D15A225B1700008FAEF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Dash-New/Dash-New.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -512,6 +748,7 @@
 		25C1D15B225B1700008FAEF2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Dash-New/Dash-New.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -610,6 +847,88 @@
 			};
 			name = Release;
 		};
+		7FE084B12267013900B8505D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MotivationIntent/MotivationIntent.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS247Y395L;
+				INFOPLIST_FILE = MotivationIntent/Info.plist;
+				INTENTS_CODEGEN_LANGUAGE = Swift;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrometheusConsulting.dash.MotivationIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7FE084B22267013900B8505D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MotivationIntent/MotivationIntent.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS247Y395L;
+				INFOPLIST_FILE = MotivationIntent/Info.plist;
+				INTENTS_CODEGEN_LANGUAGE = Swift;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrometheusConsulting.dash.MotivationIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7FE084B32267013900B8505D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MotivationIntentUI/MotivationIntentUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS247Y395L;
+				INFOPLIST_FILE = MotivationIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrometheusConsulting.dash.MotivationIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7FE084B42267013900B8505D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MotivationIntentUI/MotivationIntentUI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS247Y395L;
+				INFOPLIST_FILE = MotivationIntentUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrometheusConsulting.dash.MotivationIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -645,6 +964,24 @@
 			buildConfigurations = (
 				25C1D160225B1700008FAEF2 /* Debug */,
 				25C1D161225B1700008FAEF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FE084B52267013900B8505D /* Build configuration list for PBXNativeTarget "MotivationIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FE084B32267013900B8505D /* Debug */,
+				7FE084B42267013900B8505D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FE084B62267013900B8505D /* Build configuration list for PBXNativeTarget "MotivationIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FE084B12267013900B8505D /* Debug */,
+				7FE084B22267013900B8505D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

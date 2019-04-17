@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Intents
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -36,7 +37,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }catch{
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
+        donateInteraction()
+        
        
+    }
+    
+    func donateInteraction() {
+        let intent = MotivateIntent()
+        
+        intent.suggestedInvocationPhrase = "Energize"
+        
+        let interaction = INInteraction(intent: intent, response: nil)
+        
+        interaction.donate { (error) in
+            if error != nil {
+                if let error = error as NSError? {
+                    print(error)
+                } else {
+                    print("Successfully donated interaction")
+                }
+            }
+        }
     }
 
     
