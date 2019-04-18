@@ -16,6 +16,8 @@
 		25C1D155225B1700008FAEF2 /* Dash_NewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D154225B1700008FAEF2 /* Dash_NewUITests.swift */; };
 		25C1D163225B1AAF008FAEF2 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D162225B1AAF008FAEF2 /* PersistenceService.swift */; };
 		25C1D17B225E7026008FAEF2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1D17A225E7026008FAEF2 /* DetailViewController.swift */; };
+		7F3AB4E52268DBC90034480B /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084B82267015E00B8505D /* Intents.intentdefinition */; };
+		7F3AB4E62268DEA20034480B /* MotivateIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084D72267065E00B8505D /* MotivateIntentHandler.swift */; };
 		7F834032226275C500F5C2FC /* Dash_New.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */; };
 		7F8340352264C3BF00F5C2FC /* Launch Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8340342264C3BF00F5C2FC /* Launch Screen.png */; };
 		7F83403C2265075A00F5C2FC /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83403B2265075A00F5C2FC /* RemindersViewController.swift */; };
@@ -213,6 +215,7 @@
 				25C1D13B225B16FF008FAEF2 /* Assets.xcassets */,
 				25C1D13D225B16FF008FAEF2 /* LaunchScreen.storyboard */,
 				25C1D140225B16FF008FAEF2 /* Info.plist */,
+				7FE084B82267015E00B8505D /* Intents.intentdefinition */,
 			);
 			path = "Dash-New";
 			sourceTree = "<group>";
@@ -241,7 +244,6 @@
 				7FE084BA226701D000B8505D /* MotivationIntent.entitlements */,
 				7FE084992267013900B8505D /* IntentHandler.swift */,
 				7FE0849B2267013900B8505D /* Info.plist */,
-				7FE084B82267015E00B8505D /* Intents.intentdefinition */,
 				7FE084D72267065E00B8505D /* MotivateIntentHandler.swift */,
 			);
 			path = MotivationIntent;
@@ -552,7 +554,9 @@
 				7FE084DA226708C800B8505D /* NSCustomPersistentContainer.swift in Sources */,
 				7FE084CD226701EB00B8505D /* Dash_New.xcdatamodeld in Sources */,
 				7FE084D62267057300B8505D /* PersistenceService.swift in Sources */,
+				7F3AB4E52268DBC90034480B /* Intents.intentdefinition in Sources */,
 				7FE084A62267013900B8505D /* IntentViewController.swift in Sources */,
+				7F3AB4E62268DEA20034480B /* MotivateIntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class MotivateIntentHandler: NSObject, MotivateIntentHandling{
     func confirm(intent: MotivateIntent, completion: @escaping (MotivateIntentResponse) -> Void) {
@@ -14,7 +15,15 @@ class MotivateIntentHandler: NSObject, MotivateIntentHandling{
         }
     
     func handle(intent: MotivateIntent, completion: @escaping (MotivateIntentResponse) -> Void) {
-
-                completion(MotivateIntentResponse.success(test: "TEST"))
-            }
+        let fetchRequest: NSFetchRequest<Affirmation> = Affirmation.fetchRequest()
+        do{
+            let affirmationList = try PersistenceService.context.fetch(fetchRequest)
+            let randAffirmation = affirmationList[Int(arc4random_uniform(UInt32(affirmationList.count)))]
+            
+            completion(MotivateIntentResponse.success(test: randAffirmation.title!))
+        }catch{
+            print("The fetch could not be performed: \(error.localizedDescription)")
+            completion(MotivateIntentResponse(code: .failure, userActivity: nil))
+        }
+    }
 }

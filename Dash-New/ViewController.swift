@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func donateInteraction() {
         let intent = MotivateIntent()
         
-        intent.suggestedInvocationPhrase = "Energize"
+        intent.suggestedInvocationPhrase = "Motivate Me"
         
         let interaction = INInteraction(intent: intent, response: nil)
         
