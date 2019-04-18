@@ -30,8 +30,9 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
 
-        loadQuotes()
+     
         loadImages()
+        loadQuotes()
         title = board.title
         //print(board1)
     }
@@ -127,7 +128,8 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
         imageview.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
         self.view.addSubview(imageview)
-        imageview.frame = CGRect (x: 100, y: 100, width: 100 , height: 100)
+        let height = image.size.height * (150/image.size.width)
+        imageview.frame = CGRect (x: 100, y: 100, width: 150 , height: height)
         self.imageViews.append(imageview)
         self.dismiss(animated: true, completion: nil)
         
