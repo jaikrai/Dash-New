@@ -87,10 +87,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     }
     @IBAction func addText(_ sender: Any) {
         let alert = UIAlertController(title: "Add A Quote", message: nil, preferredStyle: .alert)
-        alert.addTextField { (textField) in
-            textField.placeholder = "Quote"
-        }
-        
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let action = UIAlertAction(title: "Save", style: .default) { action in
@@ -106,6 +102,18 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
             self.view.addSubview(label)
             self.labelViews.append(label)
         }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Quote"
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: .main) { notif in
+                if let text = textField.text, !text.isEmpty {
+                    action.isEnabled = true
+                } else {
+                    action.isEnabled = false
+                    
+                }
+            }
+        }
+        action.isEnabled = false
         alert.addAction(action)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)

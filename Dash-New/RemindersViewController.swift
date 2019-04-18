@@ -61,12 +61,20 @@ class RemindersViewController: UIViewController {
         }
         
         let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .default)
+                                         style: .cancel)
         
-        alert.addTextField()
-        
-        alert.textFields?[0].placeholder = "Affirmation"
-        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Affirmation"
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: .main) { notif in
+                if let text = textField.text, !text.isEmpty {
+                    saveAction.isEnabled = true
+                } else {
+                    saveAction.isEnabled = false
+                    
+                }
+            }
+        }
+        saveAction.isEnabled = false
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         
