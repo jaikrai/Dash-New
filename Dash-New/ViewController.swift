@@ -63,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
         @IBAction func onPlushTapped(_ sender: Any) {
         
-        let alert = UIAlertController(title: "New Vision Board", message: "Enter the name of the your vision board", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New Vision Board", message: "Enter the name of your vision board.", preferredStyle: .alert)
        
         
         // Create the action
@@ -79,20 +79,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self?.boardName.append(board)
             self?.tableView.reloadData()
         }
+            alert.addTextField { (textField) in
+                textField.placeholder = "Quote"
+                NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: .main) { notif in
+                    if let text = textField.text, !text.isEmpty {
+                        saveAction.isEnabled = true
+                    } else {
+                        saveAction.isEnabled = false
+                        
+                    }
+                }
+            }
         saveAction.isEnabled = false
             
         // Add a text field
-        alert.addTextField { (textField) in
-        textField.placeholder = "Title"
-            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: .main) { notif in
-            if let text = textField.text, !text.isEmpty {
-                saveAction.isEnabled = true
-            } else {
-                saveAction.isEnabled = false
-    
-            }
-        }
-    }
+
 
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
