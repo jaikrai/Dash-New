@@ -180,6 +180,7 @@
                         <barButtonItem systemItem="compose" id="Qfi-ez-ZT6" userLabel="addText">
                             <connections>
                                 <action selector="addText:" destination="0TX-cf-v0s" id="nnf-ei-FBC"/>
+                                <segue destination="fdX-rd-Jf0" kind="show" id="goz-Nr-oAn"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -192,6 +193,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjS-gP-dUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-199" y="262"/>
+        </scene>
+        <!--Add Text View Controller-->
+        <scene sceneID="Vyq-0L-CdU">
+            <objects>
+                <viewController id="fdX-rd-Jf0" customClass="AddTextViewController" customModule="Dash_New" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B5U-ec-a8M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Syk-YD-Fds">
+                                <rect key="frame" x="265" y="375" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperValueChanged:" destination="fdX-rd-Jf0" eventType="valueChanged" id="svC-i4-2KI"/>
+                                </connections>
+                            </stepper>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e73-aG-CJ4">
+                                <rect key="frame" x="16" y="412" width="343" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="W9J-8F-GRH"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Font Size: 12pt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUQ-ji-3Gx">
+                                <rect key="frame" x="16" y="383" width="114" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your text here." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CaK-qa-yCk">
+                                <rect key="frame" x="16" y="337" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="2Ta-vJ-lad"/>
+                                    <constraint firstAttribute="height" constant="30" id="HXl-bf-IIK"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="Vbf-4T-02d"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="YjN-WG-cPa"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cMv-RW-Oqm">
+                                <rect key="frame" x="87" y="91" width="201" height="200"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cMv-RW-Oqm" firstAttribute="top" secondItem="Yba-td-rs4" secondAttribute="top" constant="27" id="070-1e-Oo7"/>
+                            <constraint firstItem="DUQ-ji-3Gx" firstAttribute="top" secondItem="CaK-qa-yCk" secondAttribute="bottom" constant="16" id="1AI-dU-swL"/>
+                            <constraint firstItem="CaK-qa-yCk" firstAttribute="leading" secondItem="Yba-td-rs4" secondAttribute="leading" constant="16" id="6PH-66-xhK"/>
+                            <constraint firstItem="Syk-YD-Fds" firstAttribute="top" secondItem="CaK-qa-yCk" secondAttribute="bottom" constant="8" id="8mv-6R-g6N"/>
+                            <constraint firstItem="cMv-RW-Oqm" firstAttribute="leading" secondItem="Yba-td-rs4" secondAttribute="leading" constant="87" id="A5q-qS-4GN"/>
+                            <constraint firstItem="DUQ-ji-3Gx" firstAttribute="leading" secondItem="Yba-td-rs4" secondAttribute="leading" constant="16" id="AiO-vy-R05"/>
+                            <constraint firstItem="Syk-YD-Fds" firstAttribute="leading" secondItem="DUQ-ji-3Gx" secondAttribute="trailing" constant="135" id="IPT-9G-b4i"/>
+                            <constraint firstItem="e73-aG-CJ4" firstAttribute="top" secondItem="Syk-YD-Fds" secondAttribute="bottom" constant="8" id="Lea-Vw-XIz"/>
+                            <constraint firstItem="CaK-qa-yCk" firstAttribute="top" secondItem="cMv-RW-Oqm" secondAttribute="bottom" constant="46" id="Mp4-nd-NTj"/>
+                            <constraint firstItem="Syk-YD-Fds" firstAttribute="leading" secondItem="DUQ-ji-3Gx" secondAttribute="trailing" constant="135" id="R95-jH-dd6"/>
+                            <constraint firstItem="Yba-td-rs4" firstAttribute="trailing" secondItem="e73-aG-CJ4" secondAttribute="trailing" constant="16" id="Wgi-MC-ZAH"/>
+                            <constraint firstItem="Yba-td-rs4" firstAttribute="trailing" secondItem="cMv-RW-Oqm" secondAttribute="trailing" constant="87" id="jRk-ep-DWa"/>
+                            <constraint firstItem="e73-aG-CJ4" firstAttribute="leading" secondItem="Yba-td-rs4" secondAttribute="leading" constant="16" id="nHO-2p-sod"/>
+                            <constraint firstItem="Yba-td-rs4" firstAttribute="trailing" secondItem="CaK-qa-yCk" secondAttribute="trailing" constant="16" id="oUr-QP-BQ5"/>
+                            <constraint firstItem="Yba-td-rs4" firstAttribute="trailing" secondItem="Syk-YD-Fds" secondAttribute="trailing" constant="16" id="qIc-Mj-LSD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yba-td-rs4"/>
+                    </view>
+                    <connections>
+                        <outlet property="fontPicker" destination="e73-aG-CJ4" id="YXP-c5-v1R"/>
+                        <outlet property="fontSizeLabel" destination="DUQ-ji-3Gx" id="e1u-Ng-us8"/>
+                        <outlet property="fontSizeStepper" destination="Syk-YD-Fds" id="7kl-Rp-amo"/>
+                        <outlet property="textField" destination="CaK-qa-yCk" id="kpG-or-cVu"/>
+                        <outlet property="textImage" destination="cMv-RW-Oqm" id="JF5-W6-tAy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pc8-Up-XXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="789.60000000000002" y="260.41979010494754"/>
         </scene>
         <!--Affirmations-->
         <scene sceneID="Gwg-6m-Hx9">
