@@ -8,11 +8,11 @@
 
 import UIKit
 
-class AddTextViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
+class AddTextViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
     
     @IBOutlet weak var textImage: UIImageView!
     
-    @IBOutlet weak var textField: UITextView!
+    @IBOutlet weak var textField: UITextField!
     
     @IBOutlet weak var fontSizeStepper: UIStepper!
     
@@ -42,13 +42,26 @@ class AddTextViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         fontSizeStepper.value = Double(stepperValue)
         fontPicker.delegate = self
         fontPicker.dataSource = self
+        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         textField.delegate = self
         textImage.image = generateUIImage()
         fontSizeLabel.text = "Font Size: " + String(fontSize + stepperValue) + "pt"
-        textField.text = "Enter Your Text Here"
-        textField.textColor = UIColor.lightGray
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     @objc func passImage(){
         print("test")
         callback?(generateUIImage())
@@ -62,23 +75,8 @@ class AddTextViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         textImage.image = generateUIImage()
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        // Do the logic you want to happen everytime the textView changes
-        // if string is == "do it" etc....
+    @objc func textFieldDidChange(_ textField: UITextField) {
         textImage.image = generateUIImage()
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
-    }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "Enter Your Text Here"
-            textView.textColor = UIColor.lightGray
-        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -106,21 +104,6 @@ class AddTextViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func generateUIImage() -> UIImage{
-        if textField.text == "Enter Your Text Here" {
-            let font  = UIFont(name: fonts[fontPicker.selectedRow(inComponent: 0)].fontName, size: (CGFloat(fontSize + stepperValue)))
-            let frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-            let nameLabel = UILabel(frame: frame)
-            nameLabel.numberOfLines = 0
-            nameLabel.textAlignment = .center
-            nameLabel.textColor = .black
-            nameLabel.font = font
-            nameLabel.text = " "
-            UIGraphicsBeginImageContext(frame.size)
-            if let currentContext = UIGraphicsGetCurrentContext() {
-                nameLabel.layer.render(in: currentContext)
-                let nameImage = UIGraphicsGetImageFromCurrentImageContext()!
-                return nameImage
-            }        }
         let font  = UIFont(name: fonts[fontPicker.selectedRow(inComponent: 0)].fontName, size: (CGFloat(fontSize + stepperValue)))
         let frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         let nameLabel = UILabel(frame: frame)
