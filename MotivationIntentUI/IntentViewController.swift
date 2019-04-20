@@ -33,7 +33,6 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
             print("The fetch could not be performed: \(error.localizedDescription)")
         }
         loadImages()
-        loadQuotes()
         print("Loaded Images and Quotes")
     }
         
@@ -50,26 +49,12 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         return self.extensionContext!.hostedViewMaximumAllowedSize
     }
     
-    func loadQuotes(){
-        labelViews.removeAll()
-        for quote in (board.quotes!){
-            let curQuote = quote as! Quote
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-            label.center = CGPoint(x: CGFloat(curQuote.xpos), y: CGFloat(curQuote.ypos))
-            label.textAlignment = .center
-            label.text = curQuote.text
-            label.font = label.font.withSize(CGFloat(curQuote.fontSize))
-            self.view.addSubview(label)
-            labelViews.append(label)
-        }
-    }
-    
     func loadImages(){
         imageViews.removeAll()
         for image in (board.images!){
             let curImage = image as! Image
             let imageview = UIImageView (image: UIImage.init(data: curImage.picture! as Data))
-            imageview.frame = CGRect (x: CGFloat(curImage.xpos), y: CGFloat(curImage.ypos), width: CGFloat(curImage.width) , height: CGFloat(curImage.height))
+            imageview.frame = CGRect (x: CGFloat(curImage.xpos), y: CGFloat(curImage.ypos - 85), width: CGFloat(curImage.width) , height: CGFloat(curImage.height))
             self.view.addSubview(imageview)
             imageViews.append(imageview)
             

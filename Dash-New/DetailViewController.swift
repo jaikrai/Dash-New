@@ -14,11 +14,11 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     var board: Board!
     var boardId: String = ""
     var imageViews: [UIImageView] = []
-    var labelViews: [UILabel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setToolbarHidden(false, animated: true)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(share(sender:)))
 
         let fetchRequest: NSFetchRequest<Board> = Board.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", boardId)
@@ -32,27 +32,20 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
 
      
         loadImages()
-        loadQuotes()
         title = board.title
         //print(board1)
     }
     
-    func loadQuotes(){
-        labelViews.removeAll()
-        for quote in (board.quotes!){
-            let curQuote = quote as! Quote
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-            label.isUserInteractionEnabled = true
-            label.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedText(_:))))
-            label.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleText(_:))))
-            label.center = CGPoint(x: CGFloat(curQuote.xpos), y: CGFloat(curQuote.ypos))
-            label.textAlignment = .center
-            label.text = curQuote.text
-            label.font = label.font.withSize(CGFloat(curQuote.fontSize))
-            self.view.addSubview(label)
-            labelViews.append(label)
-            }
-    }
+    @objc func share(sender:UIView){
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        let objectsToShare = [image] as! [UIImage]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = sender
+            self.present(activityVC, animated: true, completion: nil)
+        }
     
     func loadImages(){
         imageViews.removeAll()
@@ -62,6 +55,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         imageview.isUserInteractionEnabled = true
         imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
         imageview.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
+        imageview.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(deleteItem(_:))))
             imageview.frame = CGRect (x: CGFloat(curImage.xpos), y: CGFloat(curImage.ypos), width: CGFloat(curImage.width) , height: CGFloat(curImage.height))
 
         self.view.addSubview(imageview)
@@ -73,6 +67,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func pickImagePressed(_ sender: Any) {
         let image = UIImagePickerController()
         image.delegate = self
@@ -86,39 +81,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
             
         }
     }
-    @IBAction func addText(_ sender: Any) {
-        let alert = UIAlertController(title: "Add A Quote", message: nil, preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let action = UIAlertAction(title: "Save", style: .default) { action in
-            let title = alert.textFields!.first!.text!;
-            print(title)
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-            label.isUserInteractionEnabled = true
-            label.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedText(_:))))
-            label.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleText(_:))))
-            label.center = CGPoint(x: 160, y: 285)
-            label.textAlignment = .center
-            label.text = title
-            self.view.addSubview(label)
-            self.labelViews.append(label)
-        }
-        alert.addTextField { (textField) in
-            textField.placeholder = "Quote"
-            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: .main) { notif in
-                if let text = textField.text, !text.isEmpty {
-                    action.isEnabled = true
-                } else {
-                    action.isEnabled = false
-                    
-                }
-            }
-        }
-        action.isEnabled = false
-        alert.addAction(action)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
@@ -127,6 +89,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         imageview.isUserInteractionEnabled = true
         imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
         imageview.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
+                    imageview.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(deleteItem(_:))))
         self.view.addSubview(imageview)
         let height = image.size.height * (150/image.size.width)
         imageview.frame = CGRect (x: 100, y: 100, width: 150 , height: height)
@@ -137,40 +100,43 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @objc func draggedImage(_ sender:UIPanGestureRecognizer){
         let viewDrag = sender.view! as! UIImageView
-        self.view.bringSubviewToFront(viewDrag)
-        let translation = sender.translation(in: self.view)
-        viewDrag.center = CGPoint(x: viewDrag.center.x + translation.x, y: viewDrag.center.y + translation.y)
-        sender.setTranslation(CGPoint.zero, in: self.view)
-        if sender.state == .ended{
-            saveData()
+        if sender.state == .began{
+            self.imageViews.remove(at: self.imageViews.firstIndex(of: viewDrag)!)
         }
-    }
-    
-    @objc func draggedText(_ sender:UIPanGestureRecognizer){
-        let viewDrag = sender.view! as! UILabel
         self.view.bringSubviewToFront(viewDrag)
         let translation = sender.translation(in: self.view)
         viewDrag.center = CGPoint(x: viewDrag.center.x + translation.x, y: viewDrag.center.y + translation.y)
         sender.setTranslation(CGPoint.zero, in: self.view)
         if sender.state == .ended{
+        self.imageViews.append(viewDrag)
             saveData()
         }
     }
     
     @objc func scaleImage(_ sender: UIPinchGestureRecognizer) {
         print("Scale Function")
+        let viewDrag = sender.view! as! UIImageView
+        if sender.state == .began{
+            self.imageViews.remove(at: self.imageViews.firstIndex(of: viewDrag)!)
+        }
         sender.view!.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
         if sender.state == .ended{
+            self.imageViews.append(viewDrag)
+
             saveData()
         }
     }
     
-    @objc func scaleText(_ sender: UIPinchGestureRecognizer) {
-        print("Scale Function")
-        sender.view!.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
-        if sender.state == .ended{
-            saveData()
+    @objc func deleteItem(_ sender: UILongPressGestureRecognizer){
+        let alert = UIAlertController(title: "Delete This Item?", message: nil, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let action = UIAlertAction(title: "Delete", style: .destructive) { action in
+        sender.view?.isHidden = true
+            self.imageViews.remove(at: self.imageViews.firstIndex(of: sender.view as! UIImageView)!)
         }
+        alert.addAction(cancelAction)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     func saveData(){
@@ -182,12 +148,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
                 PersistenceService.context.delete(curImage)
             }
             print("Removed All images")
-            for quote in self.board.quotes!{
-                let curQuote = quote as! Quote
-                self.board.removeFromQuotes(curQuote)
-                PersistenceService.context.delete(curQuote)
-            }
-            print("Removed All Quotes")
+
             for imageView in self.imageViews {
                 print("Creating Image")
                 let boardImage = Image(context: PersistenceService.context)
@@ -196,20 +157,9 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
                 boardImage.ypos = Float(imageView.frame.origin.y)
                 boardImage.width = Float(imageView.frame.width)
                 boardImage.height = Float(imageView.frame.height)
-                boardImage.layer = 1
                 self.board.addToImages(boardImage)
             }
             print("Added All Images")
-            for labelView in self.labelViews {
-                print("Saving: " + labelView.text!)
-                let quote = Quote(context: PersistenceService.context)
-                quote.text = labelView.text!
-                quote.xpos = Float(labelView.center.x)
-                quote.ypos = Float(labelView.center.y)
-                quote.layer = 1
-                self.board.addToQuotes(quote)
-            }
-            print("Added All Quotes")
             PersistenceService.saveContext()
         }
 
@@ -232,6 +182,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
                 imageview.isUserInteractionEnabled = true
                 imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
                 imageview.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
+                imageview.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.deleteItem(_:))))
                 self.view.addSubview(imageview)
                 let height = message.size.height * (150/message.size.width)
                 imageview.frame = CGRect (x: 100, y: 100, width: 150 , height: height)
