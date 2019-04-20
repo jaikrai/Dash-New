@@ -191,7 +191,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
             for imageView in self.imageViews {
                 print("Creating Image")
                 let boardImage = Image(context: PersistenceService.context)
-                boardImage.picture = NSData(data: imageView.image!.jpegData(compressionQuality: 0.75)!)
+                boardImage.picture = NSData(data: imageView.image!.pngData()!)
                 boardImage.xpos = Float(imageView.frame.origin.x)
                 boardImage.ypos = Float(imageView.frame.origin.y)
                 boardImage.width = Float(imageView.frame.width)
@@ -218,6 +218,25 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         super.willMove(toParent:parent)
         if parent == nil {
           saveData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setToolbarHidden(false, animated: true)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewControllerB = segue.destination as? AddTextViewController {
+            viewControllerB.callback = { message in
+                print("Callback Method Called")
+                let imageview = UIImageView (image: message)
+                imageview.isUserInteractionEnabled = true
+                imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
+                imageview.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
+                self.view.addSubview(imageview)
+                let height = message.size.height * (150/message.size.width)
+                imageview.frame = CGRect (x: 100, y: 100, width: 150 , height: height)
+                self.imageViews.append(imageview)
+            }
         }
     }
 }

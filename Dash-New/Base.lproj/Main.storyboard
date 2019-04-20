@@ -180,6 +180,7 @@
                         <barButtonItem systemItem="compose" id="Qfi-ez-ZT6" userLabel="addText">
                             <connections>
                                 <action selector="addText:" destination="0TX-cf-v0s" id="nnf-ei-FBC"/>
+                                <segue destination="fdX-rd-Jf0" kind="show" id="goz-Nr-oAn"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -192,6 +193,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjS-gP-dUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-199" y="262"/>
+        </scene>
+        <!--Add Text View Controller-->
+        <scene sceneID="Vyq-0L-CdU">
+            <objects>
+                <viewController id="fdX-rd-Jf0" customClass="AddTextViewController" customModule="Dash_New" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B5U-ec-a8M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Syk-YD-Fds">
+                                <rect key="frame" x="265" y="263" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperValueChanged:" destination="fdX-rd-Jf0" eventType="valueChanged" id="svC-i4-2KI"/>
+                                </connections>
+                            </stepper>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e73-aG-CJ4">
+                                <rect key="frame" x="16" y="300" width="343" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="W9J-8F-GRH"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font Size: 12pt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUQ-ji-3Gx">
+                                <rect key="frame" x="16" y="268" width="114" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Your Text Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pCZ-tW-7yL">
+                                <rect key="frame" x="16" y="191" width="343" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Rtd-nK-V9v"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cMv-RW-Oqm">
+                                <rect key="frame" x="87" y="121" width="200" height="62"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Syk-YD-Fds" firstAttribute="leading" secondItem="DUQ-ji-3Gx" secondAttribute="trailing" constant="135" id="3lb-GA-3oQ"/>
+                            <constraint firstItem="Yba-td-rs4" firstAttribute="trailing" secondItem="cMv-RW-Oqm" secondAttribute="trailing" constant="88" id="7cN-04-Fno"/>
+                            <constraint firstItem="cMv-RW-Oqm" firstAttribute="leading" secondItem="Yba-td-rs4" secondAttribute="leading" constant="87" id="9wP-Kf-VAO"/>
+                            <constraint firstItem="Syk-YD-Fds" firstAttribute="leading" secondItem="DUQ-ji-3Gx" secondAttribute="trailing" constant="135" id="GNX-rk-Jm4"/>
+                            <constraint firstItem="DUQ-ji-3Gx" firstAttribute="leading" secondItem="Yba-td-rs4" secondAttribute="leading" constant="16" id="I1u-zv-vef"/>
+                            <constraint firstItem="e73-aG-CJ4" firstAttribute="top" secondItem="Syk-YD-Fds" secondAttribute="bottom" constant="8" id="NIP-Ti-24q"/>
+                            <constraint firstItem="Yba-td-rs4" firstAttribute="trailing" secondItem="e73-aG-CJ4" secondAttribute="trailing" constant="16" id="XIg-vL-6gs"/>
+                            <constraint firstItem="Yba-td-rs4" firstAttribute="trailing" secondItem="Syk-YD-Fds" secondAttribute="trailing" constant="16" id="Xn9-ic-UJF"/>
+                            <constraint firstItem="Yba-td-rs4" firstAttribute="bottom" secondItem="e73-aG-CJ4" secondAttribute="bottom" constant="112" id="ZLo-fe-wQU"/>
+                            <constraint firstItem="pCZ-tW-7yL" firstAttribute="leading" secondItem="DUQ-ji-3Gx" secondAttribute="leading" id="eD6-ZY-sx0"/>
+                            <constraint firstItem="pCZ-tW-7yL" firstAttribute="top" secondItem="cMv-RW-Oqm" secondAttribute="bottom" constant="8" symbolic="YES" id="kVc-Eh-1d8"/>
+                            <constraint firstItem="pCZ-tW-7yL" firstAttribute="trailing" secondItem="Syk-YD-Fds" secondAttribute="trailing" id="rc3-JK-JdH"/>
+                            <constraint firstItem="cMv-RW-Oqm" firstAttribute="top" secondItem="Yba-td-rs4" secondAttribute="top" constant="57" id="uLf-Lp-blc"/>
+                            <constraint firstItem="Syk-YD-Fds" firstAttribute="top" secondItem="pCZ-tW-7yL" secondAttribute="bottom" constant="8" symbolic="YES" id="v3h-ib-gu5"/>
+                            <constraint firstItem="e73-aG-CJ4" firstAttribute="top" secondItem="DUQ-ji-3Gx" secondAttribute="bottom" constant="11" id="xiu-XS-n8Y"/>
+                            <constraint firstItem="e73-aG-CJ4" firstAttribute="leading" secondItem="Yba-td-rs4" secondAttribute="leading" constant="16" id="zfm-7P-xk5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yba-td-rs4"/>
+                    </view>
+                    <connections>
+                        <outlet property="fontPicker" destination="e73-aG-CJ4" id="YXP-c5-v1R"/>
+                        <outlet property="fontSizeLabel" destination="DUQ-ji-3Gx" id="e1u-Ng-us8"/>
+                        <outlet property="fontSizeStepper" destination="Syk-YD-Fds" id="7kl-Rp-amo"/>
+                        <outlet property="textField" destination="pCZ-tW-7yL" id="xz7-s2-tZs"/>
+                        <outlet property="textImage" destination="cMv-RW-Oqm" id="JF5-W6-tAy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pc8-Up-XXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="789.60000000000002" y="260.41979010494754"/>
         </scene>
         <!--Affirmations-->
         <scene sceneID="Gwg-6m-Hx9">
