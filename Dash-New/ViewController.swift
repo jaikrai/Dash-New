@@ -74,13 +74,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let board = Board(context: PersistenceService.context)
             board.title = title
             board.id = UUID().uuidString
-            print(board.id)
+            print(board.id!)
             PersistenceService.saveContext()
             self?.boardName.append(board)
             self?.tableView.reloadData()
         }
             alert.addTextField { (textField) in
-                textField.placeholder = "Quote"
+                textField.placeholder = "Board Name"
                 NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: .main) { notif in
                     if let text = textField.text, !text.isEmpty {
                         saveAction.isEnabled = true

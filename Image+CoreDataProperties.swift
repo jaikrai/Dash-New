@@ -22,5 +22,6 @@ extension Image {
     @NSManaged public var width: Float
     @NSManaged public var xpos: Float
     @NSManaged public var ypos: Float
+    @NSManaged public var board: Board?
 
 }

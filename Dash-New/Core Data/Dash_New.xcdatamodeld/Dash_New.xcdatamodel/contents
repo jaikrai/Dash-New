@@ -6,7 +6,7 @@
     <entity name="Board" representedClassName="Board" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Image" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Image" inverseName="board" inverseEntity="Image" syncable="YES"/>
     </entity>
     <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
         <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -14,10 +14,11 @@
         <attribute name="width" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="xpos" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ypos" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="board" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Board" inverseName="images" inverseEntity="Board" syncable="YES"/>
     </entity>
     <elements>
         <element name="Affirmation" positionX="-165.890625" positionY="365.40625" width="128" height="60"/>
         <element name="Board" positionX="-502.83984375" positionY="162.40625" width="128" height="90"/>
-        <element name="Image" positionX="-63" positionY="36" width="128" height="120"/>
+        <element name="Image" positionX="-63" positionY="36" width="128" height="135"/>
     </elements>
 </model>

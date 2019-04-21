@@ -19,12 +19,12 @@
 		7F3AB4E52268DBC90034480B /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084B82267015E00B8505D /* Intents.intentdefinition */; };
 		7F3AB4E62268DEA20034480B /* MotivateIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084D72267065E00B8505D /* MotivateIntentHandler.swift */; };
 		7F5A5EED226B763D0045D66E /* AddTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5EEC226B763D0045D66E /* AddTextViewController.swift */; };
-		7F5A5EFC226BCAA90045D66E /* Board+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5EF6226BCAA90045D66E /* Board+CoreDataClass.swift */; };
-		7F5A5EFD226BCAA90045D66E /* Board+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5EF7226BCAA90045D66E /* Board+CoreDataProperties.swift */; };
-		7F5A5EFE226BCAA90045D66E /* Image+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5EF8226BCAA90045D66E /* Image+CoreDataClass.swift */; };
-		7F5A5EFF226BCAA90045D66E /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5EF9226BCAA90045D66E /* Image+CoreDataProperties.swift */; };
-		7F5A5F00226BCAA90045D66E /* Affirmation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5EFA226BCAA90045D66E /* Affirmation+CoreDataClass.swift */; };
-		7F5A5F01226BCAA90045D66E /* Affirmation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5EFB226BCAA90045D66E /* Affirmation+CoreDataProperties.swift */; };
+		7F5A5F14226BE9440045D66E /* Board+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5F0E226BE9440045D66E /* Board+CoreDataClass.swift */; };
+		7F5A5F15226BE9440045D66E /* Board+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5F0F226BE9440045D66E /* Board+CoreDataProperties.swift */; };
+		7F5A5F16226BE9440045D66E /* Image+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5F10226BE9440045D66E /* Image+CoreDataClass.swift */; };
+		7F5A5F17226BE9440045D66E /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5F11226BE9440045D66E /* Image+CoreDataProperties.swift */; };
+		7F5A5F18226BE9440045D66E /* Affirmation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5F12226BE9440045D66E /* Affirmation+CoreDataClass.swift */; };
+		7F5A5F19226BE9440045D66E /* Affirmation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5F13226BE9440045D66E /* Affirmation+CoreDataProperties.swift */; };
 		7F834032226275C500F5C2FC /* Dash_New.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */; };
 		7F8340352264C3BF00F5C2FC /* Launch Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8340342264C3BF00F5C2FC /* Launch Screen.png */; };
 		7F83403C2265075A00F5C2FC /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83403B2265075A00F5C2FC /* RemindersViewController.swift */; };
@@ -110,12 +110,12 @@
 		25C1D162225B1AAF008FAEF2 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		25C1D17A225E7026008FAEF2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7F5A5EEC226B763D0045D66E /* AddTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTextViewController.swift; sourceTree = "<group>"; };
-		7F5A5EF6226BCAA90045D66E /* Board+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Board+CoreDataClass.swift"; path = "../../Board+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7F5A5EF7226BCAA90045D66E /* Board+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Board+CoreDataProperties.swift"; path = "../../Board+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		7F5A5EF8226BCAA90045D66E /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataClass.swift"; path = "../../Image+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7F5A5EF9226BCAA90045D66E /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataProperties.swift"; path = "../../Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		7F5A5EFA226BCAA90045D66E /* Affirmation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Affirmation+CoreDataClass.swift"; path = "../../Affirmation+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7F5A5EFB226BCAA90045D66E /* Affirmation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Affirmation+CoreDataProperties.swift"; path = "../../Affirmation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F5A5F0E226BE9440045D66E /* Board+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Board+CoreDataClass.swift"; path = "../../Board+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F5A5F0F226BE9440045D66E /* Board+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Board+CoreDataProperties.swift"; path = "../../Board+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F5A5F10226BE9440045D66E /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataClass.swift"; path = "../../Image+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F5A5F11226BE9440045D66E /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataProperties.swift"; path = "../../Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F5A5F12226BE9440045D66E /* Affirmation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Affirmation+CoreDataClass.swift"; path = "../../Affirmation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F5A5F13226BE9440045D66E /* Affirmation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Affirmation+CoreDataProperties.swift"; path = "../../Affirmation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7F8340342264C3BF00F5C2FC /* Launch Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch Screen.png"; sourceTree = "<group>"; };
 		7F8340362264CBC000F5C2FC /* Dash-New.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dash-New.entitlements"; sourceTree = "<group>"; };
 		7F83403B2265075A00F5C2FC /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
@@ -270,12 +270,12 @@
 		7FE084D02267029300B8505D /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				7F5A5EF6226BCAA90045D66E /* Board+CoreDataClass.swift */,
-				7F5A5EF7226BCAA90045D66E /* Board+CoreDataProperties.swift */,
-				7F5A5EF8226BCAA90045D66E /* Image+CoreDataClass.swift */,
-				7F5A5EF9226BCAA90045D66E /* Image+CoreDataProperties.swift */,
-				7F5A5EFA226BCAA90045D66E /* Affirmation+CoreDataClass.swift */,
-				7F5A5EFB226BCAA90045D66E /* Affirmation+CoreDataProperties.swift */,
+				7F5A5F0E226BE9440045D66E /* Board+CoreDataClass.swift */,
+				7F5A5F0F226BE9440045D66E /* Board+CoreDataProperties.swift */,
+				7F5A5F11226BE9440045D66E /* Image+CoreDataProperties.swift */,
+				7F5A5F10226BE9440045D66E /* Image+CoreDataClass.swift */,
+				7F5A5F12226BE9440045D66E /* Affirmation+CoreDataClass.swift */,
+				7F5A5F13226BE9440045D66E /* Affirmation+CoreDataProperties.swift */,
 				25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */,
 				25C1D162225B1AAF008FAEF2 /* PersistenceService.swift */,
 				7FE084D32267047700B8505D /* NSCustomPersistentContainer.swift */,
@@ -497,19 +497,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F5A5EFC226BCAA90045D66E /* Board+CoreDataClass.swift in Sources */,
+				7F5A5F14226BE9440045D66E /* Board+CoreDataClass.swift in Sources */,
 				7FE084D42267047700B8505D /* NSCustomPersistentContainer.swift in Sources */,
-				7F5A5F00226BCAA90045D66E /* Affirmation+CoreDataClass.swift in Sources */,
+				7F5A5F18226BE9440045D66E /* Affirmation+CoreDataClass.swift in Sources */,
 				7F5A5EED226B763D0045D66E /* AddTextViewController.swift in Sources */,
+				7F5A5F17226BE9440045D66E /* Image+CoreDataProperties.swift in Sources */,
 				7FE084DC22670C6100B8505D /* Intents.intentdefinition in Sources */,
+				7F5A5F15226BE9440045D66E /* Board+CoreDataProperties.swift in Sources */,
+				7F5A5F16226BE9440045D66E /* Image+CoreDataClass.swift in Sources */,
 				7F83403C2265075A00F5C2FC /* RemindersViewController.swift in Sources */,
-				7F5A5EFE226BCAA90045D66E /* Image+CoreDataClass.swift in Sources */,
 				25C1D17B225E7026008FAEF2 /* DetailViewController.swift in Sources */,
-				7F5A5F01226BCAA90045D66E /* Affirmation+CoreDataProperties.swift in Sources */,
-				7F5A5EFF226BCAA90045D66E /* Image+CoreDataProperties.swift in Sources */,
 				25C1D163225B1AAF008FAEF2 /* PersistenceService.swift in Sources */,
 				25C1D134225B16FE008FAEF2 /* ViewController.swift in Sources */,
-				7F5A5EFD226BCAA90045D66E /* Board+CoreDataProperties.swift in Sources */,
+				7F5A5F19226BE9440045D66E /* Affirmation+CoreDataProperties.swift in Sources */,
 				25C1D132225B16FE008FAEF2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

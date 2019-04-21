@@ -85,7 +85,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         
-        let imageview = UIImageView (image: image)
+        let imageview = UIImageView (image: UIImage.init(data: image.jpegData(compressionQuality: 0.75)!))
         imageview.isUserInteractionEnabled = true
         imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
         imageview.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
@@ -129,7 +129,10 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @objc func deleteItem(_ sender: UILongPressGestureRecognizer){
         let alert = UIAlertController(title: "Delete This Item?", message: nil, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        sender.view?.alpha = 0.5
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            sender.view?.alpha = 1
+        }
         let action = UIAlertAction(title: "Delete", style: .destructive) { action in
         sender.view?.isHidden = true
             self.imageViews.remove(at: self.imageViews.firstIndex(of: sender.view as! UIImageView)!)
