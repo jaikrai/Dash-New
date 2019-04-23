@@ -192,5 +192,35 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
                 self.imageViews.append(imageview)
             }
         }
+        if let viewControllerB = segue.destination as? ImageSearchViewController{
+            viewControllerB.initialSearchTerm = board.title!
+            viewControllerB.callback = { message in
+                let imageview = UIImageView ()
+                imageview.loadNew(url: URL(string: (message as? String)!)!)
+                imageview.isUserInteractionEnabled = true
+                imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
+                imageview.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
+                imageview.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.deleteItem(_:))))
+                self.view.addSubview(imageview)
+                self.imageViews.append(imageview)
+            }
+        }
     }
 }
+extension UIImageView {
+    func loadNew(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                            let width = image.size.width * (150/image.size.height)
+                            self?.frame = CGRect (x: 100, y: 100, width: width , height: 150)
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+

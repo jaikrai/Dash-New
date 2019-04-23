@@ -57,22 +57,25 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="boardCell" textLabel="tki-Ea-MGn" style="IBUITableViewCellStyleDefault" id="vIT-Bw-wBc">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="boardCell" textLabel="tki-Ea-MGn" rowHeight="48" style="IBUITableViewCellStyleDefault" id="vIT-Bw-wBc">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vIT-Bw-wBc" id="z8z-wH-cat">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="47.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tki-Ea-MGn">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tki-Ea-MGn">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="47.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="0TX-cf-v0s" kind="show" identifier="ViewBoard" id="tY9-Aj-Abm"/>
                                         </connections>
@@ -175,7 +178,11 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem width="144" style="plain" systemItem="fixedSpace" id="V0c-4W-L6B"/>
-                        <barButtonItem systemItem="search" id="VGA-c4-R7s" userLabel="searchImage"/>
+                        <barButtonItem systemItem="search" id="VGA-c4-R7s" userLabel="searchImage">
+                            <connections>
+                                <segue destination="G6e-dG-6sM" kind="show" id="wJv-e8-y7c"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem width="136" style="plain" systemItem="fixedSpace" id="7JI-0u-iTf"/>
                         <barButtonItem systemItem="compose" id="Qfi-ez-ZT6" userLabel="addText">
                             <connections>
@@ -193,6 +200,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjS-gP-dUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-199" y="262"/>
+        </scene>
+        <!--Image Search View Controller-->
+        <scene sceneID="Pwo-JG-Exf">
+            <objects>
+                <viewController id="G6e-dG-6sM" customClass="ImageSearchViewController" customModule="Dash_New" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UAb-CE-NgD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Por-FX-M8d">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DNR-je-Hek">
+                                <rect key="frame" x="16" y="129" width="343" height="538"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RGu-F1-MRW">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="FgR-hH-Tjs">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DNR-je-Hek" firstAttribute="trailing" secondItem="Por-FX-M8d" secondAttribute="trailing" constant="-16" id="4wo-92-mbP"/>
+                            <constraint firstAttribute="bottom" secondItem="DNR-je-Hek" secondAttribute="bottom" id="7vS-dz-YtC"/>
+                            <constraint firstItem="Por-FX-M8d" firstAttribute="top" secondItem="VRB-1M-zSc" secondAttribute="top" id="Fj8-xE-T0C"/>
+                            <constraint firstItem="Por-FX-M8d" firstAttribute="leading" secondItem="UAb-CE-NgD" secondAttribute="leading" id="FpN-qm-VJI"/>
+                            <constraint firstItem="DNR-je-Hek" firstAttribute="top" secondItem="Por-FX-M8d" secondAttribute="bottom" constant="9" id="Jl5-ok-w3O"/>
+                            <constraint firstItem="DNR-je-Hek" firstAttribute="leading" secondItem="Por-FX-M8d" secondAttribute="leading" constant="16" id="sPs-Gt-N02"/>
+                            <constraint firstAttribute="trailing" secondItem="Por-FX-M8d" secondAttribute="trailing" id="umX-A9-LfN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VRB-1M-zSc"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="DNR-je-Hek" id="ZL3-yi-wbi"/>
+                        <outlet property="searchBar" destination="Por-FX-M8d" id="FmU-iA-Mwv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1dz-Wz-5fW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-194.40000000000001" y="941.37931034482767"/>
         </scene>
         <!--Add Text View Controller-->
         <scene sceneID="Vyq-0L-CdU">
