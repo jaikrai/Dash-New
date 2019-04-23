@@ -8,11 +8,18 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class RemindersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var affirmations = [Affirmation]()
+    var notification: [String] = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    var reminderList = [Reminder]()
+    var time: Reminder!
+    var hour: Int!
+    var minute: Int!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +32,23 @@ class RemindersViewController: UIViewController {
         
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: "Cell")
+        
+        let reminderRequest: NSFetchRequest<Reminder> = Reminder.fetchRequest()
+        do{
+            let rem = try PersistenceService.context.fetch(reminderRequest)
+            
+            if reminderList.count == 0{
+                self.hour = 10
+                self.minute = 0
+            }
+            else{
+                time = rem.first
+                self.hour = Int(time.hour)
+                self.minute = Int(time.minute)
+            }
+        }catch{
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
         let fetchRequest: NSFetchRequest<Affirmation> = Affirmation.fetchRequest()
         do{
             let temp = try PersistenceService.context.fetch(fetchRequest)
@@ -34,12 +58,104 @@ class RemindersViewController: UIViewController {
         }catch{
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
+        var day = 1
+        var sec = 0
+        clearNotification()
+        for i in 0...6 {
+            notification(day: day, identifier: notification[i], sec: sec, hour: self.hour, minute: self.minute)
+            day = day + 1
+            sec = sec + 5
+        }
+        
     }
 
+    func notification(day: Int, identifier: String, sec: Int, hour: Int, minute: Int) {
+        let center = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        if affirmations.count == 0{
+            content.body = "Don't forget to check your vision boards!"
+        } else{
+            let randomAffirm = affirmations.randomElement()?.title
+            content.body = "Don't forget to check your vision boards! \n" + randomAffirm!
+        }
+        content.title = "Daily Meditation"
+        content.sound = UNNotificationSound.default
+        content.threadIdentifier = "Local-not temp"
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        dateComponents.weekday = day
+        dateComponents.second = sec
+        
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        center.add(request) { (error) in
+            if error != nil{
+                print(error!)
+            }
+        }
+        
+    }
+    
+    func clearNotification(){
+        let center = UNUserNotificationCenter.current()
+        center.removeAllDeliveredNotifications()
+        center.removeAllPendingNotificationRequests()
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
     
     @objc func goToCal(_ sender: Any) {
-        let url = URL(string: "calshow://")! as URL
-        UIApplication.shared.open(url, options: [:] , completionHandler: nil)
+        print("test")
+        var day = 1
+        var sec = 0
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let message = "\n\n\n\n\n\n"
+        let alert = UIAlertController(title: "Select time for notification delivery", message: message, preferredStyle: UIAlertController.Style.actionSheet)
+        alert.isModalInPopover = true
+        
+        let pickerFrame = UIDatePicker(frame: CGRect(x: 5, y: 20, width: screenWidth - 20, height: 140)) // CGRectMake(left, top, width, height) - left and top are like margins
+        pickerFrame.tag = 555
+        pickerFrame.datePickerMode = UIDatePicker.Mode.time
+        
+        //set the pickers datasource and delegate
+        //pickerFrame.delegate = self
+        
+        //Add the picker to the alert controller
+        alert.view.addSubview(pickerFrame)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            let date = pickerFrame.date
+            let components = Calendar.current.dateComponents([.hour, .minute], from: date)
+            self.hour = components.hour!
+            self.minute = components.minute!
+            print(self.hour!)
+            print(self.minute!)
+            if self.reminderList.count != 0{
+                PersistenceService.context.delete(self.time)
+            }
+            let newTime = Reminder(context: PersistenceService.context)
+            newTime.hour = Int32(self.hour)
+            newTime.minute = Int32(self.minute)
+            PersistenceService.saveContext()
+            print(newTime.hour)
+            print(newTime.minute)
+            self.clearNotification()
+            for i in 0...6 {
+                self.notification(day: day, identifier: self.notification[i], sec: sec, hour: self.hour, minute: self.minute)
+                day = day + 1
+                sec = sec + 5
+            }
+            
+        })
+        alert.addAction(okAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
     
     
