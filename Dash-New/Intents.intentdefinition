@@ -69,6 +69,26 @@
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>You do not have any affirmations. Try adding one.</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>vJSvkh</string>
+						<key>INIntentResponseCodeName</key>
+						<string>noAffirmation</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>You do not have any boards. Try adding one.</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>2B38xR</string>
+						<key>INIntentResponseCodeName</key>
+						<string>noBoard</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<false/>
+					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
 				<integer>1</integer>

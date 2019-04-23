@@ -16,8 +16,16 @@ class MotivateIntentHandler: NSObject, MotivateIntentHandling{
     
     func handle(intent: MotivateIntent, completion: @escaping (MotivateIntentResponse) -> Void) {
         let fetchRequest: NSFetchRequest<Affirmation> = Affirmation.fetchRequest()
+        let fetchRequest2: NSFetchRequest<Board> = Board.fetchRequest()
         do{
             let affirmationList = try PersistenceService.context.fetch(fetchRequest)
+            let boardList = try PersistenceService.context.fetch(fetchRequest2)
+            if(affirmationList.count == 0){
+                completion(MotivateIntentResponse(code: .noAffirmation, userActivity: nil))
+            }
+            if(boardList.count == 0){
+                completion(MotivateIntentResponse(code: .noBoard, userActivity: nil))
+            }
             let randAffirmation = affirmationList[Int(arc4random_uniform(UInt32(affirmationList.count)))]
             
             completion(MotivateIntentResponse.success(test: randAffirmation.title!))

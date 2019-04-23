@@ -119,6 +119,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "boardCell", for: indexPath)
         cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 3
        // if cell == nil {
         //cell = UITableViewCell(style: .subtitle, reuseIdentifier: "boardCell")
         
