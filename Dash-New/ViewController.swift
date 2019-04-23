@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         self.navigationItem.title = "Boards"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(onPlushTapped(_:)))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Calendar", style: .plain, target: self, action: #selector(goToCal(_:)))
         
         let fetchRequest: NSFetchRequest<Board> = Board.fetchRequest()
         do{
@@ -40,6 +41,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         donateInteraction()
         
        
+    }
+    
+    @IBAction func goToCal(_ sender: Any){
+        let url = URL(string: "calshow://")! as URL
+        UIApplication.shared.open(url, options: [:] , completionHandler: nil)
     }
     
     func donateInteraction() {
