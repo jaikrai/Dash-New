@@ -19,21 +19,16 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         super.viewDidLoad()
         self.navigationController?.setToolbarHidden(false, animated: true)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(share(sender:)))
-
         let fetchRequest: NSFetchRequest<Board> = Board.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", boardId)
         do{
             let boardName = try PersistenceService.context.fetch(fetchRequest)
             board = boardName.first
-            
         }catch{
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
-
-     
         loadImages()
         title = board.title
-        //print(board1)
     }
     
     @objc func share(sender:UIView){
@@ -45,7 +40,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = sender
             self.present(activityVC, animated: true, completion: nil)
-        }
+    }
     
     func loadImages(){
         imageViews.removeAll()
@@ -56,35 +51,26 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
         imageview.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(DetailViewController.scaleImage(_:))))
         imageview.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(deleteItem(_:))))
-            imageview.frame = CGRect (x: CGFloat(curImage.xpos), y: CGFloat(curImage.ypos), width: CGFloat(curImage.width) , height: CGFloat(curImage.height))
-
+        imageview.frame = CGRect (x: CGFloat(curImage.xpos), y: CGFloat(curImage.ypos), width: CGFloat(curImage.width) , height: CGFloat(curImage.height))
         self.view.addSubview(imageview)
         imageViews.append(imageview)
-
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func pickImagePressed(_ sender: Any) {
         let image = UIImagePickerController()
         image.delegate = self
-        
         image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        
         image.allowsEditing = false
-        
         self.present(image, animated: true)
-        {
-            
-        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-        
         let imageview = UIImageView (image: UIImage.init(data: image.jpegData(compressionQuality: 0.75)!))
         imageview.isUserInteractionEnabled = true
         imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
@@ -95,7 +81,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         imageview.frame = CGRect (x: 100, y: 100, width: 150 , height: height)
         self.imageViews.append(imageview)
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @objc func draggedImage(_ sender:UIPanGestureRecognizer){
@@ -114,7 +99,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     @objc func scaleImage(_ sender: UIPinchGestureRecognizer) {
-        print("Scale Function")
         let viewDrag = sender.view! as! UIImageView
         if sender.state == .began{
             self.imageViews.remove(at: self.imageViews.firstIndex(of: viewDrag)!)
@@ -122,7 +106,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         sender.view!.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
         if sender.state == .ended{
             self.imageViews.append(viewDrag)
-
             saveData()
         }
     }
@@ -143,17 +126,12 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     func saveData(){
-            // The back button was pressed or interactive gesture used
-            print("Closing Board: "  + self.board.id!)
             for image in self.board.images!{
                 let curImage = image as! Image
                 self.board.removeFromImages(curImage)
                 PersistenceService.context.delete(curImage)
             }
-            print("Removed All images")
-
             for imageView in self.imageViews {
-                print("Creating Image")
                 let boardImage = Image(context: PersistenceService.context)
                 boardImage.picture = NSData(data: imageView.image!.pngData()!)
                 boardImage.xpos = Float(imageView.frame.origin.x)
@@ -162,9 +140,8 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
                 boardImage.height = Float(imageView.frame.height)
                 self.board.addToImages(boardImage)
             }
-            print("Added All Images")
             PersistenceService.saveContext()
-        }
+    }
 
     
     override func willMove(toParent parent: UIViewController?) {
@@ -180,7 +157,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewControllerB = segue.destination as? AddTextViewController {
             viewControllerB.callback = { message in
-                print("Callback Method Called")
                 let imageview = UIImageView (image: message)
                 imageview.isUserInteractionEnabled = true
                 imageview.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(DetailViewController.draggedImage(_:))))
@@ -192,6 +168,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
                 self.imageViews.append(imageview)
             }
         }
+        
         if let viewControllerB = segue.destination as? ImageSearchViewController{
             viewControllerB.initialSearchTerm = board.title!
             viewControllerB.callback = { message in
@@ -207,6 +184,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         }
     }
 }
+
 extension UIImageView {
     func loadNew(url: URL) {
         DispatchQueue.global().async { [weak self] in
@@ -216,7 +194,6 @@ extension UIImageView {
                         self?.image = image
                             let width = image.size.width * (150/image.size.height)
                             self?.frame = CGRect (x: 100, y: 100, width: width , height: 150)
-                            
                         }
                     }
                 }

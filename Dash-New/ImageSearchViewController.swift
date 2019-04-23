@@ -12,7 +12,6 @@ class ImageSearchViewController: UIViewController, UICollectionViewDelegate, UIC
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     var callback : ((String) -> Void)?
     var links: [String] = []
     var thumbs: [String] = []
@@ -22,24 +21,19 @@ class ImageSearchViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchImages(querry: initialSearchTerm.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil))
-
         self.navigationController?.setToolbarHidden(true, animated: true)
         title = "Add An Image"
         searchBar.text = initialSearchTerm
         collectionView.delegate = self
         collectionView.dataSource = self
         searchBar.delegate = self
-        fetchImages(querry: initialSearchTerm)
         collectionView.reloadData()
-
     }
     
     func fetchImages(querry: String){
-        print("Searching...")
         guard let url = URL(string: searchApiLink + querry) else {
-            print("exiting")
+            print("Invalid Search Term")
             return
-            
         }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let dataResponse = data,
@@ -47,14 +41,13 @@ class ImageSearchViewController: UIViewController, UICollectionViewDelegate, UIC
                     print(error?.localizedDescription ?? "Response Error")
                     return }
             do{
-                //here dataResponse received from a network request
                 self.links.removeAll()
                 self.thumbs.removeAll()
                 guard let jsonResponse = try JSONSerialization.jsonObject(with:dataResponse, options: []) as? [String: Any] else{return}
-                var test = jsonResponse as NSDictionary
+                let test = jsonResponse as NSDictionary
                 let testing = test["items"] as? [NSDictionary]
                 for image in testing!{
-                    var temp = image["image"] as? NSDictionary
+                    let temp = image["image"] as? NSDictionary
                     self.thumbs.append((temp!["thumbnailLink"] as? String)!)
                     self.links.append((image["link"] as? String)!)
                     print(self.links.count)
@@ -62,7 +55,8 @@ class ImageSearchViewController: UIViewController, UICollectionViewDelegate, UIC
                 print(self.links.count)
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
-                }            } catch let parsingError {
+                }
+            } catch let parsingError {
                     print("Error", parsingError)
             }
         }
@@ -78,7 +72,6 @@ class ImageSearchViewController: UIViewController, UICollectionViewDelegate, UIC
             .dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath)
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         let url = URL(string: thumbs[indexPath.item])
-        print(url)
         imageView.load(url: url!)
         cell.insertSubview(imageView, at: 5)
         return cell
@@ -93,9 +86,8 @@ class ImageSearchViewController: UIViewController, UICollectionViewDelegate, UIC
             fetchImages(querry: searchBar.text!.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil))
         }
     }
-
-
 }
+
 extension UIImageView {
     func load(url: URL) {
         DispatchQueue.global().async { [weak self] in

@@ -12,7 +12,6 @@ import UserNotifications
 
 class RemindersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
     var affirmations = [Affirmation]()
     var notification: [String] = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
     var reminderList = [Reminder]()
@@ -20,28 +19,21 @@ class RemindersViewController: UIViewController {
     var hour: Int!
     var minute: Int!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Affirmations"
         let add = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addName(_:)))
         let reminders = UIBarButtonItem(title: "Reminders", style: .plain, target: self, action: #selector(goToCal(_:)))
         self.navigationItem.rightBarButtonItem = add
         self.navigationItem.leftBarButtonItem = reminders
-        
-        tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: "Cell")
-        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         let reminderRequest: NSFetchRequest<Reminder> = Reminder.fetchRequest()
         do{
             let rem = try PersistenceService.context.fetch(reminderRequest)
-            
             if reminderList.count == 0{
                 self.hour = 10
                 self.minute = 0
-            }
-            else{
+            }else{
                 time = rem.first
                 self.hour = Int(time.hour)
                 self.minute = Int(time.minute)
@@ -66,7 +58,6 @@ class RemindersViewController: UIViewController {
             day = day + 1
             sec = sec + 5
         }
-        
     }
 
     func notification(day: Int, identifier: String, sec: Int, hour: Int, minute: Int) {
@@ -81,24 +72,18 @@ class RemindersViewController: UIViewController {
         content.title = "Daily Meditation"
         content.sound = UNNotificationSound.default
         content.threadIdentifier = "Local-not temp"
-        
         var dateComponents = DateComponents()
         dateComponents.hour = hour
         dateComponents.minute = minute
         dateComponents.weekday = day
         dateComponents.second = sec
-        
-        
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-        
         center.add(request) { (error) in
             if error != nil{
                 print(error!)
             }
         }
-        
     }
     
     func clearNotification(){
@@ -109,7 +94,6 @@ class RemindersViewController: UIViewController {
     }
     
     @objc func goToCal(_ sender: Any) {
-        print("test")
         var day = 1
         var sec = 0
         let screenSize = UIScreen.main.bounds
@@ -117,15 +101,9 @@ class RemindersViewController: UIViewController {
         let message = "\n\n\n\n\n\n"
         let alert = UIAlertController(title: "Select time for notification delivery", message: message, preferredStyle: UIAlertController.Style.actionSheet)
         alert.isModalInPopover = true
-        
-        let pickerFrame = UIDatePicker(frame: CGRect(x: 5, y: 20, width: screenWidth - 20, height: 140)) // CGRectMake(left, top, width, height) - left and top are like margins
+        let pickerFrame = UIDatePicker(frame: CGRect(x: 5, y: 20, width: screenWidth - 20, height: 140))
         pickerFrame.tag = 555
         pickerFrame.datePickerMode = UIDatePicker.Mode.time
-        
-        //set the pickers datasource and delegate
-        //pickerFrame.delegate = self
-        
-        //Add the picker to the alert controller
         alert.view.addSubview(pickerFrame)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
@@ -150,7 +128,6 @@ class RemindersViewController: UIViewController {
                 day = day + 1
                 sec = sec + 5
             }
-            
         })
         alert.addAction(okAction)
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
@@ -161,13 +138,8 @@ class RemindersViewController: UIViewController {
     
     
     @objc func addName(_ sender: Any) {
-        print("Testing")
-        let alert = UIAlertController(title: "New Affirmation",
-                                      message: "Add a new Affirmation",
-                                      preferredStyle: .alert)
-        
+        let alert = UIAlertController(title: "New Affirmation", message: "Add a new Affirmation", preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] action in
-            
             let title = alert.textFields?.first?.text
             let affirmation = Affirmation(context: PersistenceService.context)
             affirmation.title = title
@@ -175,10 +147,7 @@ class RemindersViewController: UIViewController {
             self.tableView.reloadData()
             PersistenceService.saveContext()
         }
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .cancel)
-        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addTextField { (textField) in
             textField.placeholder = "Affirmation"
             NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: .main) { notif in
@@ -186,7 +155,6 @@ class RemindersViewController: UIViewController {
                     saveAction.isEnabled = true
                 } else {
                     saveAction.isEnabled = false
-                    
                 }
             }
         }

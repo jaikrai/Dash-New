@@ -11,13 +11,9 @@ import UIKit
 class AddTextViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
     
     @IBOutlet weak var textImage: UIImageView!
-    
     @IBOutlet weak var textField: UITextField!
-    
     @IBOutlet weak var fontSizeStepper: UIStepper!
-    
     @IBOutlet weak var fontPicker: UIPickerView!
-    
     @IBOutlet weak var fontSizeLabel: UILabel!
     var fonts = [UIFont]()
     var fontSize = 12
@@ -27,18 +23,14 @@ class AddTextViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setToolbarHidden(true, animated: true)
-
         for fontFamily in UIFont.familyNames{
             for font in UIFont.fontNames(forFamilyName: fontFamily)
             {
                 fonts.append(UIFont(name: font, size: 12)!)
             }
         }
-        
         self.navigationItem.title = "New Quote"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(passImage))
-        
-        
         fontSizeStepper.value = Double(stepperValue)
         fontPicker.delegate = self
         fontPicker.dataSource = self
@@ -46,24 +38,20 @@ class AddTextViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         textField.delegate = self
         textImage.image = generateUIImage()
         fontSizeLabel.text = "Font Size: " + String(fontSize + stepperValue) + "pt"
-        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         textField.resignFirstResponder()
-        
         return true
-        
     }
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
     @objc func passImage(){
-        print("test")
         callback?(generateUIImage())
         navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
@@ -97,8 +85,7 @@ class AddTextViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIColor.black
         pickerLabel.text = fonts[row].familyName
-        // pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 15)
-        pickerLabel.font = UIFont(name: fonts[row].fontName, size: 15) // In this use your custom font
+        pickerLabel.font = UIFont(name: fonts[row].fontName, size: 15)
         pickerLabel.textAlignment = NSTextAlignment.center
         return pickerLabel
     }
@@ -119,7 +106,5 @@ class AddTextViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             return nameImage
         }
         return textImage.image!
-        
     }
-
 }

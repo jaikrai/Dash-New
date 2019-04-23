@@ -29,7 +29,6 @@
 		7F5A5EED226B763D0045D66E /* AddTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A5EEC226B763D0045D66E /* AddTextViewController.swift */; };
 		7F5D7B3C226E5E2F0022A687 /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D7B3B226E5E2F0022A687 /* ImageSearchViewController.swift */; };
 		7F834032226275C500F5C2FC /* Dash_New.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 25C1D138225B16FE008FAEF2 /* Dash_New.xcdatamodeld */; };
-		7F8340352264C3BF00F5C2FC /* Launch Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F8340342264C3BF00F5C2FC /* Launch Screen.png */; };
 		7F83403C2265075A00F5C2FC /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F83403B2265075A00F5C2FC /* RemindersViewController.swift */; };
 		7FE0849A2267013900B8505D /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE084992267013900B8505D /* IntentHandler.swift */; };
 		7FE084A32267013900B8505D /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE084A22267013900B8505D /* IntentsUI.framework */; };
@@ -122,7 +121,6 @@
 		7F20AB6C226FB76500A6A53E /* Board+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Board+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7F5A5EEC226B763D0045D66E /* AddTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTextViewController.swift; sourceTree = "<group>"; };
 		7F5D7B3B226E5E2F0022A687 /* ImageSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchViewController.swift; sourceTree = "<group>"; };
-		7F8340342264C3BF00F5C2FC /* Launch Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch Screen.png"; sourceTree = "<group>"; };
 		7F8340362264CBC000F5C2FC /* Dash-New.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dash-New.entitlements"; sourceTree = "<group>"; };
 		7F83403B2265075A00F5C2FC /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		7FE084972267013900B8505D /* MotivationIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MotivationIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,7 +208,6 @@
 			children = (
 				7FE084D02267029300B8505D /* Core Data */,
 				7F8340362264CBC000F5C2FC /* Dash-New.entitlements */,
-				7F8340342264C3BF00F5C2FC /* Launch Screen.png */,
 				25C1D131225B16FE008FAEF2 /* AppDelegate.swift */,
 				25C1D133225B16FE008FAEF2 /* ViewController.swift */,
 				25C1D17A225E7026008FAEF2 /* DetailViewController.swift */,
@@ -465,7 +462,6 @@
 				7F834032226275C500F5C2FC /* Dash_New.xcdatamodeld in Resources */,
 				25C1D13F225B16FF008FAEF2 /* LaunchScreen.storyboard in Resources */,
 				25C1D13C225B16FF008FAEF2 /* Assets.xcassets in Resources */,
-				7F8340352264C3BF00F5C2FC /* Launch Screen.png in Resources */,
 				25C1D137225B16FE008FAEF2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
