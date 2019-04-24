@@ -56,10 +56,9 @@ class RemindersViewController: UIViewController {
         for i in 0...6 {
             notification(day: day, identifier: notification[i], sec: sec, hour: self.hour, minute: self.minute)
             day = day + 1
-            sec = sec + 5
         }
     }
-
+    
     func notification(day: Int, identifier: String, sec: Int, hour: Int, minute: Int) {
         let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
